@@ -1,0 +1,86 @@
+version: '3'
+services:
+  web:
+    container_name: '${APP_NAME}_web'
+    build:
+      context: ./Webserver/docker/web/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - './Backend/:/var/www/app'
+      - './Webserver/docker/web/nginx/default.conf:/etc/nginx/conf.d/default.conf'
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
+    links:
+      - php
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      - proxy
+  front:
+    container_name: '${APP_NAME}_front'
+    build:
+      context: ./Webserver/docker/nuxt
+    hostname: client
+    volumes:
+      - './Frontend:/var/www/app'
+    networks:
+      - proxy
+    ports:
+      - '3000:3000'
+    tty: true
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; npm install ; npm run build ; npm run preview; done & npm install ; npm run build ;npm run preview'''
+  panel:
+    container_name: '${APP_NAME}_panel'
+    build:
+      context: ./Webserver/docker/panel
+    hostname: client
+    volumes:
+      - './Panel:/var/www/app'
+    networks:
+      - proxy
+    ports:
+      - '3001:3001'
+    tty: true
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; npm install ; npm run dev; done & npm install ; npm run dev'''
+  php:
+    container_name: '${APP_NAME}_php'
+    build:
+      context: ./Webserver/docker/php
+      dockerfile: Dockerfile
+    links:
+      - db
+    volumes:
+      - './Backend/:/var/www/app'
+    networks:
+      - proxy
+  db:
+    container_name: '${APP_NAME}_db'
+    image: mysql
+    command: '--default-authentication-plugin=mysql_native_password'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: '${DB_DATABASE}'
+      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+    volumes:
+      - './Webserver/docker/mysql/data:/var/lib/mysql'
+    networks:
+      - proxy
+    cap_add:
+      - SYS_NICE
+  myadmin:
+    container_name: '${APP_NAME}_myadmin'
+    image: phpmyadmin
+    ports:
+      - '81:80'
+    environment:
+      UPLOAD_LIMIT: 300M
+    depends_on:
+      - db
+    networks:
+      - proxy
+networks:
+  proxy:
+    driver: bridge
+

@@ -39,9 +39,9 @@ services:
     networks:
       - proxy
     ports:
-      - '3001:3001'
+      - '3001:3000'
     tty: true
-    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; npm install ; npm run dev; done & npm install ; npm run dev'''
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; npm install http-server -g && npm install --no-optional && npm run build &&  http-server ./dist;  done & npm install ; npm run build ;npm run preview'''
   php:
     container_name: '${APP_NAME}_php'
     build:

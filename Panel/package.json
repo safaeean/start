@@ -10,7 +10,7 @@
     "prelint": "npm run format",
     "lint": "eslint --fix './src/**/*.{ts,js,vue}'",
     "format": "prettier --write .",
-    "preview": "vite preview"
+    "preview": "vite preview --host --port 3000"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,vue}": [

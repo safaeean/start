@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['cors', 'json.response'],'prefix' => 'api'], function () {
+
+    // ...
+
+    // public routes
+    Route::post('/login', 'Auth\ApiAuthController@login')->name('login');
+    Route::post('/register','Auth\ApiAuthController@register')->name('register');
+    Route::post('/logout', 'Auth\ApiAuthController@logout')->name('logout');
+
+    // ...
+
 });

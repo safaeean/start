@@ -11,5 +11,9 @@
   "devDependencies": {
     "@types/node": "^18",
     "nuxt": "^3.5.2"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "sweetalert": "^2.1.2"
   }
 }

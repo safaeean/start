@@ -16,6 +16,8 @@
           <ul class="nav navbar-nav">
             <li><NuxtLink to="/">Home</NuxtLink></li>
             <li><NuxtLink to="/contact-us">Contact us</NuxtLink></li>
+            <li><NuxtLink to="/auth/register">Register</NuxtLink></li>
+            <li><NuxtLink to="/auth/login">Login</NuxtLink></li>
           </ul>
         </div>
       </div><!--/.container-->

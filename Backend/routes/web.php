@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['cors', 'json.response'],'prefix' => 'api'], function () {
+Route::group(['prefix' => 'api','namespace' => 'App\Http\Controllers'], function () {
 
     // ...
 

@@ -51,6 +51,6 @@ ENV TZ=Asia/Tehran
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
-WORKDIR /var/www/app/private
+WORKDIR /var/www/app
 RUN chown -R www-data:www-data /var/www
 EXPOSE 9000

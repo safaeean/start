@@ -4,7 +4,7 @@
   "version": "3.1.0",
   "scripts": {
     "prepare": "husky install",
-    "dev": "vite",
+    "dev": "npx update-browserslist-db@latest && vite --host --port 3000",
     "build": "npm run lint && vue-tsc --noEmit && vite build",
     "build:ci": "vite build",
     "prelint": "npm run format",
@@ -34,6 +34,7 @@
     "pinia": "^2.0.16",
     "register-service-worker": "^1.7.1",
     "sass": "^1.53.0",
+    "update-browserslist-db": "^1.0.11",
     "vue": "^3.2.25",
     "vue-chartjs": "^4.1.1",
     "vue-i18n": "^9.1.10",

@@ -13,15 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'api','namespace' => 'App\Http\Controllers'], function () {
-
-    // ...
-
-    // public routes
-    Route::post('/login', 'Auth\ApiAuthController@login')->name('login');
-    Route::post('/register','Auth\ApiAuthController@register')->name('register');
-    Route::post('/logout', 'Auth\ApiAuthController@logout')->name('logout');
-
-    // ...
-
+Route::get('/', function () {
+    return view('welcome');
 });

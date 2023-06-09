@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import Swal from 'sweetalert'
 
 export default {
@@ -31,24 +30,24 @@ export default {
   },
   methods: {
     login () {
-      axios.post('/api/login', {
-        email: this.email,
-        password: this.password
+      this.$auth.loginWith('laravelSanctum', {
+        data: {
+          email: this.email,
+          password: this.password
+        }
       }).then(function (data) {
         Swal({
           title: 'Success!',
-          text: data.message,
+          text: '',
           icon: 'success',
           confirmButtonText: 'Cool'
         })
       }).catch(function (data) {
-        data.response.data.errors.forEach(function (error) {
-          Swal({
-            title: 'Error!',
-            text: error,
-            icon: 'error',
-            confirmButtonText: 'Cool'
-          })
+        Swal({
+          title: 'Error!',
+          text: data.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Cool'
         })
       })
     }

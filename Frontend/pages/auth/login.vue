@@ -19,18 +19,18 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 import Swal from 'sweetalert'
 
 export default {
-  data() {
+  data () {
     return {
       email: '',
-      password: '',
-    };
+      password: ''
+    }
   },
   methods: {
-    login() {
+    login () {
       axios.post('/api/login', {
         email: this.email,
         password: this.password
@@ -51,7 +51,7 @@ export default {
           })
         })
       })
-    },
-  },
-};
+    }
+  }
+}
 </script>

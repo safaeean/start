@@ -29,3 +29,6 @@
   visibility: inherit!important;
 }
 </style>
+<style>
+@import "@/assets/css/main.css";
+</style>

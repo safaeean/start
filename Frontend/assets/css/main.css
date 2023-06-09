@@ -1,7 +1,7 @@
-@import "bootstrap.min.css";
-@import "font-awesome.min.css";
-@import "animate.min.css";
-@import "prettyphoto.css";
-@import "styles.css";
-@import "slider-style.css";
-@import "slider-custom.css";
+@import "@/assets/css/bootstrap.min.css";
+@import "@/assets/css/font-awesome.min.css";
+@import "@/assets/css/animate.min.css";
+@import "@/assets/css/styles.css";
+@import "@/assets/css/slider-style.css";
+@import "@/assets/css/slider-custom.css";
+

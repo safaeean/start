@@ -16,7 +16,10 @@
         </div>
         <div class="form-group">
           <label for="password_confirmation">Confirm password :</label>
-          <input type="password" class="form-control" id="password_confirmation" v-model="password_confirmation"
+          <input type="password"
+                 class="form-control"
+                 id="password_confirmation"
+                 v-model="password_confirmation"
                  required>
         </div>
         <div class="form-group">
@@ -28,20 +31,20 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 import Swal from 'sweetalert'
 
 export default {
-  data() {
+  data () {
     return {
       name: '',
       email: '',
       password: '',
-      password_confirmation: '',
-    };
+      password_confirmation: ''
+    }
   },
   methods: {
-    register() {
+    register () {
       axios.post('/api/register', {
         name: this.name,
         email: this.email,
@@ -64,7 +67,7 @@ export default {
           })
         })
       })
-    },
-  },
-};
+    }
+  }
+}
 </script>

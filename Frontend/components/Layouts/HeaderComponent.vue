@@ -15,9 +15,9 @@
         <div class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
             <li><NuxtLink to="/">Home</NuxtLink></li>
-            <li><NuxtLink to="/contact-us">Contact us</NuxtLink></li>
-            <li><NuxtLink to="/auth/register">Register</NuxtLink></li>
-            <li><NuxtLink to="/auth/login">Login</NuxtLink></li>
+            <li v-if="!$auth.user"><NuxtLink to="/auth/register">Register</NuxtLink></li>
+            <li v-if="!$auth.user"><NuxtLink to="/auth/login">Login</NuxtLink></li>
+            <li v-if="user"><NuxtLink to="/profile">{{ user.name }}</NuxtLink></li>
           </ul>
         </div>
       </div><!--/.container-->
@@ -32,3 +32,12 @@
 <style>
 @import "@/assets/css/main.css";
 </style>
+<script>
+export default {
+  data () {
+    return {
+      user: this.$auth.user
+    }
+  }
+}
+</script>

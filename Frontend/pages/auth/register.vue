@@ -45,19 +45,31 @@ export default {
   },
   methods: {
     register () {
+      const self = this
+      this.$nuxt.$loading.start()
       axios.post('/api/register', {
         name: this.name,
         email: this.email,
         password: this.password,
         password_confirmation: this.password_confirmation
       }).then(function (data) {
-        Swal({
-          title: 'Success!',
-          text: data.message,
-          icon: 'success',
-          confirmButtonText: 'Cool'
+        self.$auth.loginWith('laravelSanctum', {
+          data: {
+            email: self.email,
+            password: self.password
+          }
+        }).then(function (data) {
+          window.location.replace('/')
+        }).catch(function (data) {
+          Swal({
+            title: 'Error!',
+            text: data.response.data.message,
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
         })
       }).catch(function (data) {
+        console.log(data)
         data.response.data.errors.forEach(function (error) {
           Swal({
             title: 'Error!',
@@ -67,6 +79,7 @@ export default {
           })
         })
       })
+      this.$nuxt.$loading.finish()
     }
   }
 }

@@ -30,19 +30,16 @@ export default {
   },
   methods: {
     login () {
+      this.$nuxt.$loading.start()
       this.$auth.loginWith('laravelSanctum', {
         data: {
           email: this.email,
           password: this.password
         }
       }).then(function (data) {
-        Swal({
-          title: 'Success!',
-          text: '',
-          icon: 'success',
-          confirmButtonText: 'Cool'
-        })
+        window.location.replace('/')
       }).catch(function (data) {
+        console.log(data)
         Swal({
           title: 'Error!',
           text: data.response.data.message,
@@ -50,6 +47,7 @@ export default {
           confirmButtonText: 'Cool'
         })
       })
+      this.$nuxt.$loading.finish()
     }
   }
 }

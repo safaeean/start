@@ -155,7 +155,8 @@
     "typography": "Tipografía",
     "uiElements": "Elementos UI",
     "colors": "Colores",
-    "chat": "Chat"
+    "chat": "Chat",
+    "users": "َUsers"
   },
   "messages": {
     "all": "Ver todos los mensajes",

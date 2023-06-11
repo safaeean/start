@@ -23,6 +23,21 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../pages/admin/dashboard/Dashboard.vue'),
       },
       {
+        name: 'users',
+        path: 'users',
+        component: RouteViewComponent,
+        children: [
+          {
+            name: 'list',
+            path: 'list',
+            component: () => import('../pages/admin/users/list/Users.vue'),
+            meta: {
+              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Charts',
+            },
+          },
+        ],
+      },
+      {
         name: 'statistics',
         path: 'statistics',
         component: RouteViewComponent,

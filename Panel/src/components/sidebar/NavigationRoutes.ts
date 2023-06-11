@@ -19,6 +19,20 @@ export default {
       },
     },
     {
+      name: 'users',
+      displayName: 'menu.users',
+      meta: {
+        icon: 'vuestic-iconset-user',
+      },
+      disabled: true,
+      children: [
+        {
+          name: 'list',
+          displayName: 'menu.users',
+        },
+      ],
+    },
+    {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {

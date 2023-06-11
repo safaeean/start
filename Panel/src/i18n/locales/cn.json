@@ -175,7 +175,8 @@
     "treeView": "树视图",
     "dateTimePickers": "日期时间选择器",
     "fileUpload": "文件上传",
-    "chat": "聊天"
+    "chat": "聊天",
+    "users": "َUsers"
   },
   "messages": {
     "all": "查看全部消息",

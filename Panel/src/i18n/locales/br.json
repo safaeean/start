@@ -167,7 +167,8 @@
     "uiElements": "Elementos UI",
     "treeView": "Árvore de visualização",
     "dateTimePickers": "Selecionar Data e Hora",
-    "chat": "Gráficos"
+    "chat": "Gráficos",
+    "users": "َUsers"
   },
   "messages": {
     "all": "Ver todas as menssagens",

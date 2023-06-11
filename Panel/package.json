@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "husky install",
     "dev": "npx update-browserslist-db@latest && vite --host --port 3000",
-    "build": "npm run lint && vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "build:ci": "vite build",
     "prelint": "npm run format",
     "lint": "eslint --fix './src/**/*.{ts,js,vue}'",

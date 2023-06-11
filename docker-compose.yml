@@ -28,7 +28,7 @@ services:
     ports:
       - '3000:3000'
     tty: true
-    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; npm install ; npm run build ; npm run preview; done & npm install ; npm run build ;npm run preview'''
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; npm install ; npm run build ; npm run start; done & npm install ; npm run build ;npm run start'''
   panel:
     container_name: '${APP_NAME}_panel'
     build:

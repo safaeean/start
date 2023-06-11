@@ -36,7 +36,7 @@
       </div>
     </template>
     <template #right>
-      <app-navbar-actions class="app-navbar__actions md5 lg4" :user-name="userName" />
+      <app-navbar-actions class="app-navbar__actions md5 lg4" :user-name="user.name" />
     </template>
   </va-navbar>
 </template>
@@ -54,7 +54,7 @@
   const GlobalStore = useGlobalStore()
   const { t } = useI18n()
 
-  const { isSidebarMinimized, userName } = storeToRefs(GlobalStore)
+  const { isSidebarMinimized, user } = storeToRefs(GlobalStore)
 
   const { getColors } = useColors()
   const colors = computed(() => getColors())

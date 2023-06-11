@@ -34,6 +34,8 @@
 
   const GlobalStore = useGlobalStore()
 
+  GlobalStore.setUser()
+
   const mobileBreakPointPX = 640
   const tabletBreakPointPX = 768
 

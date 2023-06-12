@@ -15,13 +15,15 @@
     </form>
     <el-table
       :data="ref_data.data"
-      style="width: 100%;"
+      style="width: 100%"
+      :style="`text-align: ${locale === 'ir' ? 'right' : 'left'}`"
       :empty-text="empty_text"
       @sort-change="sort_change"
     >
       <el-table-column
         v-for="column in props.columns"
         :label="column.title"
+        :class-name="locale === 'ir' ? 'is-right' : ''"
         :sortable="!column.child"
       >
         <template #default="scope">
@@ -84,12 +86,15 @@
 
 <script lang="ts" setup>
   import { ref, watch } from 'vue'
+  import {useI18n} from "vue-i18n";
 
   const emit = defineEmits(['button_function'])
   const query = ref({ page: 1, sort_by: "", order: ""})
   const search = ref({ q: '' })
   let ref_data = ref({})
   const empty_text = ref({})
+
+  const { t, locale } = useI18n()
 
   const sort_change = (data) => {
     query.value.sort_by = props.columns[data.column.no].data || ''

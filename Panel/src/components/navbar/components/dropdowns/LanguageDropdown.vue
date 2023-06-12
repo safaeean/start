@@ -10,7 +10,7 @@
         :key="id"
         class="language-dropdown__item row align--center pt-1 pb-1 mt-2 mb-2"
         :class="{ active: option.code === locale }"
-        @click="locale = option.code"
+        @click="changeLanguage(option.code)"
       >
         <va-icon :name="getFlagIcon(option.code, 'small')" />
         <span class="dropdown-item__text">
@@ -58,6 +58,10 @@
 
   function getFlagIcon(code: string, size: string) {
     return `flag-icon-${code} ${size}`
+  }
+  function changeLanguage(code: string) {
+    locale.value = code;
+    localStorage.setItem('locale' , code)
   }
 </script>
 

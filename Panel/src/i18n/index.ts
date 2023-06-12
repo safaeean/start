@@ -17,7 +17,7 @@ Object.entries(fileNameToLocaleModuleDict)
 
 export default createI18n({
   legacy: false,
-  locale: 'gb',
-  fallbackLocale: 'gb',
+  locale: localStorage.getItem('locale') || "gb",
+  fallbackLocale: localStorage.getItem('locale') || "gb",
   messages,
 })

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-layout">
+  <div class="app-layout" :class="locale === 'ir' ? 'rtl' : ''">
     <navbar />
     <div class="app-layout__content">
       <div class="app-layout__sidebar-wrapper" :class="{ minimized: isSidebarMinimized }">
@@ -28,9 +28,11 @@
   import { onBeforeRouteUpdate } from 'vue-router'
 
   import { useGlobalStore } from '../stores/global-store'
+  const { locale } = useI18n()
 
   import Navbar from '../components/navbar/Navbar.vue'
   import Sidebar from '../components/sidebar/Sidebar.vue'
+  import {useI18n} from "vue-i18n";
 
   const GlobalStore = useGlobalStore()
 
@@ -84,6 +86,9 @@
 <style lang="scss">
   $mobileBreakPointPX: 640px;
   $tabletBreakPointPX: 768px;
+  .rtl{
+    direction: rtl;
+  }
 
   .app-layout {
     height: 100vh;

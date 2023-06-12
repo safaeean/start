@@ -10,8 +10,11 @@ import router from './router'
 import vuesticGlobalConfig from './services/vuestic-ui/global-config'
 import App from './App.vue'
 
+import helper from './helper'
+
 const app = createApp(App)
 
+app.use(helper);
 app.use(ElementPlus)
 app.use(stores)
 app.use(router)

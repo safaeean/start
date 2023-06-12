@@ -10,6 +10,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::query()->paginate(30);
+        return User::query()->paginateAndSearchAndOrder();
     }
 }

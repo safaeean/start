@@ -86,7 +86,7 @@
   import { ref, watch } from 'vue'
 
   const emit = defineEmits(['button_function'])
-  const query = ref({ page: 1 })
+  const query = ref({ page: 1, sort_by: "", order: ""})
   const search = ref({ q: '' })
   let ref_data = ref({})
   const empty_text = ref({})

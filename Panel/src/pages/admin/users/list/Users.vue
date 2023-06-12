@@ -1,5 +1,11 @@
 <template>
-  <Table api="/admin/user" :columns="columns" :buttons="buttons"/>
+  <div class="flex">
+    <va-card class="flex mb-4">
+      <va-card-content>
+        <Table api="/admin/user" :columns="columns" :buttons="buttons"/>
+      </va-card-content>
+    </va-card>
+  </div>
 </template>
 <script setup lang="ts">
 import Table from "../../../../components/Table.vue";

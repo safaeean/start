@@ -15,24 +15,7 @@
     </template>
     <template #center>
       <div class="app-navbar-center">
-        <span class="app-navbar-center__text mr-2">{{ t('navbar.messageUs') }}</span>
-        <a
-          class="app-navbar-center__mail mr-2"
-          href="mailto:hello@epicmax.co"
-          target="_blank"
-          :style="{ color: colors.primary }"
-        >
-          hello@epicmax.co
-        </a>
-        <va-button
-          href="https://github.com/epicmaxco/vuestic-admin"
-          color="#000000"
-          class="app-navbar-center__github-button"
-          icon="github"
-          target="_blank"
-        >
-          {{ t('navbar.repository') }}
-        </va-button>
+
       </div>
     </template>
     <template #right>

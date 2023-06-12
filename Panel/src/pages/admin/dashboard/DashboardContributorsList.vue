@@ -48,7 +48,7 @@
   async function loadContributorsList() {
     loading.value = true
     const { data } = await axios.get<IContributor[]>(
-      'https://api.github.com/repos/epicmaxco/vuestic-admin/contributors',
+      'https://api.github.com/repos/safaeean/start/contributors',
     )
     contributors.value = data
     progressMax.value = Math.max(...contributors.value.map(({ contributions }) => contributions))

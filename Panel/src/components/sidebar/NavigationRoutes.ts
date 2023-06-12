@@ -19,7 +19,7 @@ export default {
       },
     },
     {
-      name: 'users',
+      name: 'user',
       displayName: 'menu.users',
       meta: {
         icon: 'vuestic-iconset-user',

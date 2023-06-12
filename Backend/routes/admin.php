@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'admin'] , function (){
-    Route::get('user' , 'UserController@index');
+    Route::resource('user' , 'UserController');
 })->middleware('auth:sanctum');
 

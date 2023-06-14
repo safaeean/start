@@ -3,16 +3,16 @@
     <form @submit.prevent="handleSubmit" class="checkout-form">
       <div class="row">
         <div class="flex md12">
-          <va-input v-model="user.name" type="text" label="Name" />
+          <va-input v-model="user.name" type="text" :label="t('table.column.name')" />
         </div>
       </div>
       <div class="row">
         <div class="flex md12">
-          <va-input v-model="user.email" type="email" label="Email"/>
+          <va-input v-model="user.email" type="email" :label="t('table.column.email')"/>
         </div>
       </div>
 
-      <el-button native-type="submit">Save</el-button>
+      <el-button native-type="submit">{{ t('save') }}</el-button>
     </form>
   </div>
 </template>
@@ -21,6 +21,9 @@
 
 import {ref} from 'vue'
 import {useRouter} from 'vue-router';
+
+import {useI18n} from "vue-i18n";
+const { t } = useI18n()
 
 const router = useRouter()
 

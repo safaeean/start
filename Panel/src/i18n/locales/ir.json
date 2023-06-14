@@ -523,5 +523,9 @@
       "registrationDate": "تاریخ عضویت",
       "report": "گزارش"
     }
+  },
+  "save": "ذخیره",
+  "users": {
+    "editUser" : "ویرایش کاربر"
   }
 }

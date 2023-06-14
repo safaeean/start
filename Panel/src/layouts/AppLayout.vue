@@ -81,6 +81,9 @@
   const onCloseSidebarButtonClick = () => {
     isSidebarMinimized.value = true
   }
+
+  if(locale.value === "ir")
+    import("../scss/vazir-font/Vazirmatn-font-face.css");
 </script>
 
 <style lang="scss">
@@ -89,7 +92,6 @@
   .rtl{
     direction: rtl;
   }
-
   .app-layout {
     height: 100vh;
     display: flex;

@@ -507,5 +507,21 @@
       "action1": "اقدام یک",
       "action2": "اقدام دو"
     }
+  },
+  "table": {
+    "search": "جستجو",
+    "features": "امکانات",
+    "edit": "ویرایش",
+    "column": {
+      "id": "شناسه",
+      "title": "عنوان",
+      "category": "دسته",
+      "name": "نام",
+      "email": "ایمیل",
+      "lastName": "نام خانوادگی",
+      "firstName": "نام",
+      "registrationDate": "تاریخ عضویت",
+      "report": "گزارش"
+    }
   }
 }

@@ -580,5 +580,21 @@
     "overflow": "Tabs Overflow",
     "hidden": "Tabs with Hidden slider",
     "grow": "Tabs Grow"
+  },
+  "table": {
+    "search": "Search",
+    "features": "Features",
+    "edit": "Edit",
+    "column": {
+      "id": "ID",
+      "title": "Title",
+      "category": "Category",
+      "name": "Name",
+      "email": "Email",
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "registrationDate": "Registration date",
+      "report": "Report",
+    }
   }
 }

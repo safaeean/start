@@ -10,7 +10,7 @@
         >
           {{ button.title }}
         </router-link>
-        <va-input  @change="handleSearch" v-model="search.q" placeholder="Search" clearable />
+        <va-input  @change="handleSearch" v-model="search.q" :placeholder="t('table.search')" clearable />
       </div>
     </form>
     <el-table
@@ -43,10 +43,10 @@
       </el-table-column>
       <el-table-column
         v-if="!props.disable_edit || (props.buttons && props.buttons.length) || props.clickable_buttons"
-        label="Features"
+        :label="t('table.features')"
       >
         <template #default="scope">
-          <router-link v-if="!props.disable_edit" :to="`${props.api}/edit/${scope.row.id}`" title="edit">
+          <router-link v-if="!props.disable_edit" :to="`${props.api}/edit/${scope.row.id}`" :title="t('table.edit')">
             <el-button size="small">
               <i class="fa fa-edit"></i>
             </el-button>

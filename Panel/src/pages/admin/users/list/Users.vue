@@ -9,23 +9,25 @@
 </template>
 <script setup lang="ts">
 import Table from "../../../../components/Table.vue";
+import {useI18n} from "vue-i18n";
+const { t } = useI18n()
 const columns = [
   {
-    title: "Id",
+    title: t('table.column.title'),
     data: "id"
   },
   {
-    title: "Name",
+    title: t('table.column.name'),
     data: "name"
   },
   {
-    title: "Registration date",
+    title: t('table.column.registrationDate'),
     data: "created_at"
   }
 ]
 const buttons = [
   {
-    title: "Report",
+    title: t('table.column.report'),
     link: "report",
     type: "info"
   }

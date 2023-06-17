@@ -338,7 +338,10 @@
     "login-singup": "Login/Signup",
     "404-pages": "404 Pages",
     "faq": "Faq",
-    "users": "َUsers"
+    "users": "َUsers",
+    "blog": "Blog",
+    "posts": "Posts",
+    "categories": "Categories"
   },
   "messages": {
     "all": "See all messages",
@@ -594,7 +597,8 @@
       "lastName": "Last Name",
       "firstName": "First Name",
       "registrationDate": "Registration date",
-      "report": "Report",
+      "creationDate": "Creation date",
+      "report": "Report"
     },
     "save": "Save",
     "users": {

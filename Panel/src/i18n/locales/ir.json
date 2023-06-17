@@ -321,7 +321,10 @@
     "sliders": "اسلایدر",
     "popovers": "ابزار راهنما",
     "chat": "گفتگو",
-    "users": "کاربران"
+    "users": "کاربران",
+    "blog": "بلاگ",
+    "posts": "پست ها",
+    "categories": "دسته ها",
   },
   "messages": {
     "all": "مشاهده همه پیام ها",
@@ -521,7 +524,8 @@
       "lastName": "نام خانوادگی",
       "firstName": "نام",
       "registrationDate": "تاریخ عضویت",
-      "report": "گزارش"
+      "report": "گزارش",
+      "creationDate": "تاریخ ثبت"
     }
   },
   "save": "ذخیره",

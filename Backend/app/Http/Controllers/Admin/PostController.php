@@ -5,10 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class
 PostController extends Controller
 {
+
+    protected array $validations = [
+        'title' => 'required',
+        'description' => 'required',
+        'content' => 'required',
+    ];
+
     /**
      * Display a listing of the resource.
      */
@@ -30,7 +38,21 @@ PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validator = Validator::make($request->post, $this->validations);
+            if ($validator->fails())
+                throw new \Exception($validator->errors()->first());
+
+            Post::query()->create($validator->validated());
+
+            return [
+                'message' => 'Post created successfully'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'message' => $e->getMessage()
+            ];
+        }
     }
 
     /**
@@ -38,7 +60,9 @@ PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return [
+            'post' => $post
+        ];
     }
 
     /**
@@ -54,7 +78,20 @@ PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        try {
+            $validator = Validator::make($request->post, $this->validations);
+            if ($validator->fails())
+                throw new \Exception($validator->errors()->first());
+
+            $post->update($validator->validated());
+            return [
+                'message' => 'Post updated successfully'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'message' => $e->getMessage()
+            ];
+        }
     }
 
     /**

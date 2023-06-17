@@ -324,7 +324,7 @@
     "users": "کاربران",
     "blog": "بلاگ",
     "posts": "پست ها",
-    "categories": "دسته ها",
+    "categories": "دسته ها"
   },
   "messages": {
     "all": "مشاهده همه پیام ها",
@@ -525,11 +525,17 @@
       "firstName": "نام",
       "registrationDate": "تاریخ عضویت",
       "report": "گزارش",
-      "creationDate": "تاریخ ثبت"
+      "creationDate": "تاریخ ثبت",
+      "description": "توضیحات",
+      "content": "محتوا"
     }
   },
   "save": "ذخیره",
   "users": {
     "editUser" : "ویرایش کاربر"
+  },
+  "posts": {
+    "editPost" : "ویرایش پست",
+    "createPost" : "ایجاد پست جدید"
   }
 }

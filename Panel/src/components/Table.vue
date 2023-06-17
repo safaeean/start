@@ -1,14 +1,15 @@
 <template>
   <div>
     <form v-if="!props.disable_search" role="search">
-      <div class="input-group">
+      <div class="flex">
         <router-link
           v-for="(button, key) in props.features_buttons"
           :key="key"
-          class="input-group-addon el-button--success"
           :to="`${button.link}`"
         >
-          {{ button.title }}
+          <el-button type="success">
+            {{ button.title }}
+          </el-button>
         </router-link>
         <va-input  @change="handleSearch" v-model="search.q" :placeholder="t('table.search')" clearable />
       </div>
@@ -271,5 +272,8 @@
 
   .active-page:hover {
     background-color: #2988c8;
+  }
+  .flex{
+    display: flex;
   }
 </style>

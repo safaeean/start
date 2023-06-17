@@ -73,3 +73,8 @@
 :root{
   --va-font-family: Vazirmatn!important;
 }
+
+.va-input-wrapper--labeled .va-input-wrapper__label{
+  left: unset!important;
+  right: 0px;
+}

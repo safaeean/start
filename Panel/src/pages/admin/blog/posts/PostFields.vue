@@ -3,12 +3,17 @@
     <form @submit.prevent="handleSubmit" class="checkout-form">
       <div class="row">
         <div class="flex md12">
-          <va-input v-model="user.name" type="text" :label="t('table.column.name')" />
+          <va-input v-model="post.title" type="text" :label="t('table.column.title')" />
         </div>
       </div>
       <div class="row">
         <div class="flex md12">
-          <va-input v-model="user.email" type="email" :label="t('table.column.email')"/>
+          <va-input v-model="post.description" type="text" :label="t('table.column.description')"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="flex md12">
+          <va-input v-model="post.content" type="textarea" :label="t('table.column.content')"/>
         </div>
       </div>
 
@@ -27,10 +32,10 @@ const { t } = useI18n()
 
 const router = useRouter()
 
-const props = defineProps(["user"])
+const props = defineProps(["post"])
 
 
-const user = ref({})
+const post = ref({})
 
 import {getCurrentInstance} from 'vue'
 import {useToast} from "vuestic-ui";
@@ -39,15 +44,15 @@ const app = getCurrentInstance()
 const globalProperties = app.appContext.config.globalProperties
 
 
-if (props.user) {
-  globalProperties.$httpGet("/api/admin/user/" + props.user, function (data) {
-    user.value = data.user;
+if (props.post) {
+  globalProperties.$httpGet("/api/admin/blog/post/" + props.post, function (data) {
+    post.value = data.post;
   })
 }
 const {init} = useToast()
 
 function handleSubmit() {
-  globalProperties.$httpPost("/api/admin/user", props.user, {user: user.value}, function (data) {
+  globalProperties.$httpPost("/api/admin/blog/post", props.post, {post: post.value}, function (data) {
     init({
       message: data.message
     })

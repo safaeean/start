@@ -33,6 +33,20 @@ export default {
       ],
     },
     {
+      name: 'blog',
+      displayName: 'menu.blog',
+      meta: {
+        icon: 'vuestic-iconset-user',
+      },
+      disabled: true,
+      children: [
+        {
+          name: 'posts',
+          displayName: 'menu.posts',
+        }
+      ],
+    },
+    {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {

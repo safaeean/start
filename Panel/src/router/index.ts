@@ -10,6 +10,10 @@ import UIRoute from '../pages/admin/ui/route'
 import Users from "../pages/admin/users/Users.vue";
 import EditUser from "../pages/admin/users/EditUser.vue";
 
+import Posts from "../pages/admin/blog/posts/Posts.vue";
+import EditPost from "../pages/admin/blog/posts/EditPost.vue";
+import CreatePost from "../pages/admin/blog/posts/CreatePost.vue";
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/:catchAll(.*)',
@@ -36,10 +40,39 @@ const routes: Array<RouteRecordRaw> = [
             component: Users,
           },
           {
-            name: 'edit',
+            name: 'user-edit',
             path: 'edit/:user',
             component: EditUser,
           },
+        ],
+      },
+      {
+        name: 'blog',
+        path: 'blog',
+        component: RouteViewComponent,
+        children: [
+          {
+            name: 'post',
+            path: 'post',
+            component: RouteViewComponent,
+            children: [
+              {
+                name: 'posts',
+                path: 'posts',
+                component: Posts,
+              },
+              {
+                name: 'post-edit',
+                path: 'edit/:post',
+                component: EditPost,
+              },
+              {
+                name: 'post-create',
+                path: 'create',
+                component: CreatePost,
+              },
+            ]
+          }
         ],
       },
       {

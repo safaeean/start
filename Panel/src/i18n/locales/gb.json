@@ -598,11 +598,17 @@
       "firstName": "First Name",
       "registrationDate": "Registration date",
       "creationDate": "Creation date",
-      "report": "Report"
-    },
-    "save": "Save",
-    "users": {
-      "editUser" : "Edit User"
+      "report": "Report",
+      "description": "Description",
+      "content": "Content"
     }
+  },
+  "save": "Save",
+  "users": {
+    "editUser" : "Edit User"
+  },
+  "posts": {
+    "editPost" : "Edit post",
+    "createPost" : "Create post"
   }
 }

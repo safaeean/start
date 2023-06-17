@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'admin'] , function (){
-    Route::resource('user' , 'UserController');
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('user', 'UserController');
+
+    Route::group(['prefix' => 'blog'], function () {
+        Route::resource('post', 'PostController');
+    });
+
 })->middleware('auth:sanctum');
 

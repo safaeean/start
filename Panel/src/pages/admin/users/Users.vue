@@ -8,7 +8,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import Table from "../../../../components/Table.vue";
+import Table from "../../../components/Table.vue";
 import {useI18n} from "vue-i18n";
 const { t } = useI18n()
 const columns = [

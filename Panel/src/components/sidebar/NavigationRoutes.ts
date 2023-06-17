@@ -27,7 +27,7 @@ export default {
       disabled: true,
       children: [
         {
-          name: 'list',
+          name: 'users',
           displayName: 'menu.users',
         },
       ],

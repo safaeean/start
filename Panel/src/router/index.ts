@@ -6,8 +6,9 @@ import Page404Layout from '../layouts/Page404Layout.vue'
 
 import RouteViewComponent from '../layouts/RouterBypass.vue'
 import UIRoute from '../pages/admin/ui/route'
-import Users from "../pages/admin/users/list/Users.vue";
-import EditUser from "../pages/admin/users/list/EditUser.vue";
+
+import Users from "../pages/admin/users/Users.vue";
+import EditUser from "../pages/admin/users/EditUser.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -30,8 +31,8 @@ const routes: Array<RouteRecordRaw> = [
         component: RouteViewComponent,
         children: [
           {
-            name: 'list',
-            path: 'list',
+            name: 'users',
+            path: 'users',
             component: Users,
           },
           {

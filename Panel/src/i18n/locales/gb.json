@@ -600,6 +600,7 @@
       "creationDate": "Creation date",
       "report": "Report",
       "description": "Description",
+      "parent_id": "Parent",
       "content": "Content"
     }
   },
@@ -610,5 +611,9 @@
   "posts": {
     "editPost" : "Edit post",
     "createPost" : "Create post"
+  },
+  "categories": {
+    "editCategory" : "Edit Category",
+    "createCategory" : "Create category"
   }
 }

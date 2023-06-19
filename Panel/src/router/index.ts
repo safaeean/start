@@ -14,6 +14,10 @@ import Posts from "../pages/admin/blog/posts/Posts.vue";
 import EditPost from "../pages/admin/blog/posts/EditPost.vue";
 import CreatePost from "../pages/admin/blog/posts/CreatePost.vue";
 
+import Categories from "../pages/admin/blog/categories/Categories.vue";
+import EditCategory from "../pages/admin/blog/categories/EditCategory.vue";
+import CreateCategory from "../pages/admin/blog/categories/CreateCategory.vue";
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/:catchAll(.*)',
@@ -70,6 +74,28 @@ const routes: Array<RouteRecordRaw> = [
                 name: 'post-create',
                 path: 'create',
                 component: CreatePost,
+              },
+            ]
+          },
+          {
+            name: 'category',
+            path: 'category',
+            component: RouteViewComponent,
+            children: [
+              {
+                name: 'categories',
+                path: 'categories',
+                component: Categories,
+              },
+              {
+                name: 'category-edit',
+                path: 'edit/:category',
+                component: EditCategory,
+              },
+              {
+                name: 'category-create',
+                path: 'create',
+                component: CreateCategory,
               },
             ]
           }

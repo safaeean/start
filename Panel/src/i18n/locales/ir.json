@@ -527,6 +527,7 @@
       "report": "گزارش",
       "creationDate": "تاریخ ثبت",
       "description": "توضیحات",
+      "parent_id": "والد",
       "content": "محتوا"
     }
   },
@@ -537,5 +538,9 @@
   "posts": {
     "editPost" : "ویرایش پست",
     "createPost" : "ایجاد پست جدید"
+  },
+  "categories": {
+    "editCategory" : "ویرایش دسته",
+    "createCategory" : "ایجاد دسته جدید"
   }
 }

@@ -43,6 +43,10 @@ export default {
         {
           name: 'posts',
           displayName: 'menu.posts',
+        },
+        {
+          name: 'categories',
+          displayName: 'menu.categories',
         }
       ],
     },

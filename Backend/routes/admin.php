@@ -18,6 +18,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'blog'], function () {
         Route::resource('post', 'PostController');
+        Route::resource('category', 'CategoryController');
     });
 
 })->middleware('auth:sanctum');

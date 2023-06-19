@@ -36,7 +36,7 @@ export default {
       name: 'blog',
       displayName: 'menu.blog',
       meta: {
-        icon: 'vuestic-iconset-user',
+        icon: 'fa fa-blog',
       },
       disabled: true,
       children: [

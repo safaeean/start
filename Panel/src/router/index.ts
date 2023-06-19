@@ -17,6 +17,7 @@ import CreatePost from "../pages/admin/blog/posts/CreatePost.vue";
 import Categories from "../pages/admin/blog/categories/Categories.vue";
 import EditCategory from "../pages/admin/blog/categories/EditCategory.vue";
 import CreateCategory from "../pages/admin/blog/categories/CreateCategory.vue";
+import Setting from "../pages/admin/settings/Setting.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -100,6 +101,11 @@ const routes: Array<RouteRecordRaw> = [
             ]
           }
         ],
+      },
+      {
+        name: 'setting',
+        path: 'setting',
+        component: Setting,
       },
       {
         name: 'statistics',

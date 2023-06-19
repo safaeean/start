@@ -51,6 +51,13 @@ export default {
       ],
     },
     {
+      name: 'setting',
+      displayName: 'menu.setting',
+      meta: {
+        icon: 'vuestic-iconset-settings',
+      },
+    },
+    {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {

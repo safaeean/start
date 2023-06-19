@@ -47,4 +47,7 @@
       }
     }
   }
+  .va-sidebar__item__content>*:last-child {
+    margin-right: var(--va-sidebar-item-content-gap);
+  }
 </style>

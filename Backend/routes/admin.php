@@ -20,6 +20,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resource('post', 'PostController');
         Route::resource('category', 'CategoryController');
     });
-
+    Route::resource('setting', 'SettingController')->only(['index', 'update']);
 })->middleware('auth:sanctum');
 

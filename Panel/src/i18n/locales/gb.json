@@ -1,4 +1,5 @@
 {
+  "locate": "en-US",
   "auth": {
     "agree": "I agree to",
     "createAccount": "Create account",

@@ -118,7 +118,13 @@
     } else if (column.is_boolean) {
       return `<input type='checkbox' ${scope_row[column.data] ? 'checked' : ''} disabled />`
     } else if (column.data == 'created_at') {
-      return scope_row[column.data]
+      return new Intl.DateTimeFormat(t('locate'), {
+        month: 'numeric',
+        day: 'numeric',
+        hour: 'numeric',
+        year: 'numeric',
+        minute: 'numeric'
+      }).format(new Date(scope_row[column.data]))
     } else {
       let data = column.child && scope_row[column.data] ? scope_row[column.data][column.child] : scope_row[column.data]
       if (column.data.indexOf('amount') !== -1) return Intl.NumberFormat('en-US').format(data)

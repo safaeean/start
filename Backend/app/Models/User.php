@@ -3,14 +3,20 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends BaseModel implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail, HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -43,24 +49,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function scopePaginateAndSearchAndOrder($q)
-    {
-        return $q
-            ->search(request('q'))
-            ->order(request('sort_by'), request('order'))
-            ->paginate(30);
-    }
-
     public function scopeSearch($q, $keyword)
     {
         return $q->where('name', 'like', "%{$keyword}%");
-    }
-
-    public function scopeOrder($q, $sort_by, $order)
-    {
-        return $q
-            ->when($sort_by, function ($q) use ($sort_by, $order) {
-                $q->orderby($sort_by, $order == "descending" ? "desc" : "asc");
-            });
     }
 }

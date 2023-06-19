@@ -62,7 +62,6 @@ globalProperties.$httpGet("/api/admin/blog/category", function (data) {
 })
 
 function updateSearch(word){
-  console.log(555)
   globalProperties.$httpGet(`/api/admin/blog/category?q=${word}`, function (data) {
     categoriesList.value = data.data;
   })

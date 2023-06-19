@@ -40,13 +40,13 @@
   watchEffect(() => {
     applyPreset(currentTheme.value)
     localStorage.setItem('theme', currentTheme.value)
+    document.documentElement.style.setProperty("color-scheme", currentTheme.value);
   })
 
   const themeOptions = Object.keys(presets.value).map((themeName) => ({
     value: themeName,
     label: themeName,
   }))
-  console.log(themeOptions)
   const colorNames = Object.keys(colors)
 </script>
 

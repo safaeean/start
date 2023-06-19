@@ -529,6 +529,7 @@
       "creationDate": "تاریخ ثبت",
       "description": "توضیحات",
       "parent_id": "والد",
+      "category_id": "دسته",
       "content": "محتوا"
     }
   },

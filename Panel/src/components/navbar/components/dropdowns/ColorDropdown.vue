@@ -35,16 +35,18 @@
 
   const { presets, applyPreset, colors } = useColors()
 
-  const currentTheme = ref('light')
+  const currentTheme = ref(localStorage.getItem("theme") || 'light')
 
   watchEffect(() => {
     applyPreset(currentTheme.value)
+    localStorage.setItem('theme', currentTheme.value)
   })
 
   const themeOptions = Object.keys(presets.value).map((themeName) => ({
     value: themeName,
     label: themeName,
   }))
+  console.log(themeOptions)
   const colorNames = Object.keys(colors)
 </script>
 

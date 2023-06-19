@@ -15,6 +15,7 @@ PostController extends Controller
         'title' => 'required',
         'description' => 'required',
         'content' => 'required',
+        'category_id' => 'nullable',
     ];
 
     /**

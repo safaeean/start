@@ -16,6 +16,21 @@
           <va-input v-model="post.content" type="textarea" :label="t('table.column.content')"/>
         </div>
       </div>
+      <div class="row">
+        <div class="flex md12">
+          <va-select
+            v-model="post.category_id"
+            :options="categoriesList"
+            key-by="id"
+            value-by="id"
+            text-by="title"
+            :label="t('table.column.category_id')"
+            searchable
+            clearable
+            class="mb-3"
+          />
+        </div>
+      </div>
 
       <el-button native-type="submit">{{ t('save') }}</el-button>
     </form>
@@ -50,6 +65,11 @@ if (props.post) {
   })
 }
 const {init} = useToast()
+
+const categoriesList = ref();
+globalProperties.$httpGet("/api/admin/blog/category", function (data) {
+  categoriesList.value = data.data;
+})
 
 function handleSubmit() {
   globalProperties.$httpPost("/api/admin/blog/post", props.post, {post: post.value}, function (data) {

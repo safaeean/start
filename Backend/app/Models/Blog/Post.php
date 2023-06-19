@@ -10,7 +10,7 @@ class Post extends BaseModel
     use HasFactory;
 
 
-    protected $fillable = ['title', 'description', 'content'];
+    protected $fillable = ['title', 'description', 'content' , 'category_id'];
 
     protected static function boot()
     {

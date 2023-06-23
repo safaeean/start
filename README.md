@@ -1,5 +1,6 @@
-## Laravel backend + Vue admin panel + Nuxt frontend (Dockerized)
-Good structure for creating a new website.
+## Minimal Laravel backend + Vue admin panel + Nuxt frontend (Dockerized)
+
+This project is a Dockerized application that combines a minimal Laravel backend, a Vue-based admin panel, and a Nuxt frontend. It provides the essential features and functionality required for managing and presenting data efficiently. The Laravel backend handles server-side logic, while the Vue admin panel enables easy administration and configuration. The Nuxt frontend ensures a seamless user experience with optimized rendering and routing. Together, they form a cohesive system that allows for building web applications with a basic yet effective set of features
 
 ### Admin panel:
 

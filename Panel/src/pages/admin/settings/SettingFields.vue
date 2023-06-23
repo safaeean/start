@@ -3,9 +3,31 @@
     <form @submit.prevent="handleSubmit" class="checkout-form">
       <div class="row">
         <div class="flex md12">
-          <va-input v-model="setting.title" type="text" :label="t('table.column.title')" />
+          <va-input v-model="setting.name" type="text" :label="t('table.column.websiteName')" />
         </div>
       </div>
+
+      <div class="row">
+        <div class="flex md12">
+          <va-input v-model="setting.title" type="text" :label="t('table.column.websiteTitle')" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="flex md12">
+          <va-input v-model="setting.description" type="text" :label="t('table.column.websiteDescription')" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="flex md12">
+          <va-input v-model="setting.color" type="color" :label="t('table.column.websiteColor')" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="flex md12">
+          <va-input v-model="setting.secondary_color" type="color" :label="t('table.column.websiteSecondaryColor')" />
+        </div>
+      </div>
+
 
       <el-button native-type="submit">{{ t('save') }}</el-button>
     </form>

@@ -535,7 +535,12 @@
       "description": "توضیحات",
       "parent_id": "والد",
       "category_id": "دسته",
-      "content": "محتوا"
+      "content": "محتوا",
+      "websiteName": "نام سایت",
+      "websiteTitle": "عنوان سایت",
+      "websiteDescription": "توضیحات سایت",
+      "websiteColor": "رنگ اصلی",
+      "websiteSecondaryColor": "رنگ دوم"
     }
   },
   "save": "ذخیره",
@@ -549,5 +554,8 @@
   "categories": {
     "editCategory" : "ویرایش دسته",
     "createCategory" : "ایجاد دسته جدید"
+  },
+  "settings": {
+    "settings" : "تنظیمات"
   }
 }

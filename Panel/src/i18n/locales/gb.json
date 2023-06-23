@@ -608,7 +608,12 @@
       "description": "Description",
       "parent_id": "Parent",
       "category_id": "Category",
-      "content": "Content"
+      "content": "Content",
+      "websiteName": "Website name",
+      "websiteTitle": "Website title",
+      "websiteDescription": "Website description",
+      "websiteColor": "Website color",
+      "websiteSecondaryColor": "Website secondary color"
     }
   },
   "save": "Save",
@@ -622,5 +627,8 @@
   "categories": {
     "editCategory" : "Edit Category",
     "createCategory" : "Create category"
+  },
+  "settings": {
+    "settings" : "Settings"
   }
 }

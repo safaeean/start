@@ -20,7 +20,7 @@ export const useGlobalStore = defineStore('global', {
           return response.data
         })
         .catch(function () {
-          window.location.replace('/')
+          window.location.replace('/auth/login')
         })
     },
   },

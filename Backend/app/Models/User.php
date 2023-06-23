@@ -13,10 +13,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends BaseModel implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
-    use Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail, HasApiTokens, HasFactory, Notifiable;
+    use Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail, HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.

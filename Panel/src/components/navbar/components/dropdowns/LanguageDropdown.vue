@@ -107,4 +107,8 @@
       display: inline-block;
     }
   }
+  .rtl .language-dropdown .fi-size-small {
+    margin-right: 0rem;
+    margin-left: 0.5rem;
+  }
 </style>

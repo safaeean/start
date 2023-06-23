@@ -32,9 +32,10 @@
   import ColorDropdownItem from './ColorDropdownItem.vue'
   import { useColors } from 'vuestic-ui'
   import { ref, watchEffect } from 'vue'
+  import {useI18n} from "vue-i18n";
 
   const { presets, applyPreset, colors } = useColors()
-
+  const { t } = useI18n()
   const currentTheme = ref(localStorage.getItem("theme") || 'light')
 
   watchEffect(() => {
@@ -45,7 +46,7 @@
 
   const themeOptions = Object.keys(presets.value).map((themeName) => ({
     value: themeName,
-    label: themeName,
+    label: t('theme.'+themeName),
   }))
   const colorNames = Object.keys(colors)
 </script>
@@ -68,6 +69,7 @@
       width: 100%;
       display: flex;
       justify-content: stretch;
+      direction: ltr;
     }
   }
 

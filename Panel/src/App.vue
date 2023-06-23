@@ -15,4 +15,8 @@
   body {
     margin: 0;
   }
+  .el-table , .el-table thead, .el-table tr , .el-table thead tr, .el-table th.el-table__cell, .el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell{
+    background-color: unset!important;
+    color: unset!important;
+  }
 </style>

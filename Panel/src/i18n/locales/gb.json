@@ -69,6 +69,10 @@
     "gray": "Gray",
     "dark": "Dark"
   },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light"
+  },
   "charts": {
     "horizontalBarChart": "Horizontal Bar Chart",
     "verticalBarChart": "Vertical Bar Chart",

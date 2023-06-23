@@ -69,6 +69,10 @@
     "gray": "خاکستری",
     "dark": "تیره"
   },
+  "theme": {
+    "dark": "تیره",
+    "light": "روشن"
+  },
   "charts": {
     "horizontalBarChart": "نوار افقی نمودار",
     "verticalBarChart": "نوار عمودی نمودار",

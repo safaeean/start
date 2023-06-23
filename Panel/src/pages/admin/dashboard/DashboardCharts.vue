@@ -1,36 +1,19 @@
 <template>
   <div class="row row-equal">
     <div class="flex xs12 lg6 xl6">
-      <va-card v-if="lineChartDataGenerated">
+      <va-card v-if="dashboard_charts">
         <va-card-title>
-          <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
-          <div>
-            <va-button
-              class="ma-1"
-              size="small"
-              color="danger"
-              :disabled="datasetIndex === minIndex"
-              @click="setDatasetIndex(datasetIndex - 1)"
-            >
-              {{ t('dashboard.charts.showInLessDetail') }}
-            </va-button>
-            <va-button
-              class="ma-1"
-              size="small"
-              color="danger"
-              :disabled="datasetIndex === maxIndex - 1"
-              @click="setDatasetIndex(datasetIndex + 1)"
-            >
-              {{ t('dashboard.charts.showInMoreDetail') }}
-            </va-button>
-          </div>
+          <h1>{{ t('dashboard.charts.register') }}</h1>
         </va-card-title>
         <va-card-content>
-          <va-chart class="chart" :data="lineChartDataGenerated" type="line" />
+          <va-chart class="chart" :data="dashboard_charts.register" type="line" />
         </va-card-content>
       </va-card>
     </div>
 
+    <div class="flex xs12 sm6 md6 lg3 xl3">
+      <dashboard-contributors-chart />
+    </div>
     <div class="flex xs12 sm6 md6 lg3 xl3">
       <va-card class="d-flex">
         <va-card-title>
@@ -42,19 +25,14 @@
         </va-card-content>
       </va-card>
     </div>
-
-    <div class="flex xs12 sm6 md6 lg3 xl3">
-      <dashboard-contributors-chart />
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+import {getCurrentInstance, ref} from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { doughnutChartData, lineChartData } from '../../../data/charts'
+  import { doughnutChartData } from '../../../data/charts'
   import { useChartData } from '../../../data/charts/composables/useChartData'
-  import { usePartOfChartData } from './composables/usePartOfChartData'
   import VaChart from '../../../components/va-charts/VaChart.vue'
   import DashboardContributorsChart from './DashboardContributorsList.vue'
 
@@ -62,16 +40,16 @@
 
   const doughnutChart = ref()
 
-  const dataGenerated = useChartData(lineChartData, 0.7)
   const doughnutChartDataGenerated = useChartData(doughnutChartData)
 
-  const {
-    dataComputed: lineChartDataGenerated,
-    minIndex,
-    maxIndex,
-    datasetIndex,
-    setDatasetIndex,
-  } = usePartOfChartData(dataGenerated)
+
+  const app = getCurrentInstance()
+  const globalProperties = app.appContext.config.globalProperties
+
+  const dashboard_charts = ref();
+  globalProperties.$httpGet("/api/admin/reports/charts/dashboard/all", function (data) {
+    dashboard_charts.value = data.data;
+  })
 
   function printChart() {
     const windowObjectReference = window.open('', 'Print', 'height=600,width=800') as Window

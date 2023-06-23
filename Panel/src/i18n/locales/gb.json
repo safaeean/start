@@ -120,7 +120,7 @@
     "setupRemoteConnections": "Setup Remote Connections",
     "currentVisitors": "Current Visitors",
     "charts": {
-      "trendyTrends": "Trendy Trends",
+      "register": "Register chart",
       "showInMoreDetail": "Show in more detail",
       "showInLessDetail": "Show in less detail",
       "loadingSpeed": "Loading speed",

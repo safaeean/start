@@ -11,9 +11,6 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      input: {
-        sidebar: resolve(__dirname, 'index.html'),
-      },
       output: {
         entryFileNames: `panel/assets/[name].js`,
         chunkFileNames: `panel/assets/[name].js`,

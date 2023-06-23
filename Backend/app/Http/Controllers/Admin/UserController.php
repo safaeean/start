@@ -21,6 +21,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        $user->load('roles');
         return compact('user');
     }
     public function update(User $user, Request $request)
@@ -31,6 +32,9 @@ class UserController extends Controller
                 throw new \Exception($validator->errors()->first());
 
             $user->update($validator->validated());
+
+            $user->roles()->sync($request->user['roles']);
+
             return [
                 'message' => 'User updated successfully'
             ];

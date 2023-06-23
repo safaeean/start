@@ -19,6 +19,14 @@ import EditCategory from "../pages/admin/blog/categories/EditCategory.vue";
 import CreateCategory from "../pages/admin/blog/categories/CreateCategory.vue";
 import Setting from "../pages/admin/settings/Setting.vue";
 
+import Roles from "../pages/admin/role/Roles.vue";
+import EditRole from "../pages/admin/role/EditRole.vue";
+import CreateRole from "../pages/admin/role/CreateRole.vue";
+
+import Permissions from "../pages/admin/permission/Permissions.vue";
+import EditPermission from "../pages/admin/permission/EditPermission.vue";
+import CreatePermission from "../pages/admin/permission/CreatePermission.vue";
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/:catchAll(.*)',
@@ -48,6 +56,55 @@ const routes: Array<RouteRecordRaw> = [
             name: 'user-edit',
             path: 'edit/:user',
             component: EditUser,
+          },
+          {
+            name: 'user-edit',
+            path: 'edit/:user',
+            component: EditUser,
+          },
+        ],
+      },
+      {
+        name: 'role',
+        path: 'role',
+        component: RouteViewComponent,
+        children: [
+          {
+            name: 'roles',
+            path: 'roles',
+            component: Roles,
+          },
+          {
+            name: 'role-edit',
+            path: 'edit/:role',
+            component: EditRole,
+          },
+          {
+            name: 'role-create',
+            path: 'create',
+            component: CreateRole,
+          },
+        ],
+      },
+      {
+        name: 'permission',
+        path: 'permission',
+        component: RouteViewComponent,
+        children: [
+          {
+            name: 'permissions',
+            path: 'permissions',
+            component: Permissions,
+          },
+          {
+            name: 'permission-edit',
+            path: 'edit/:permission',
+            component: EditPermission,
+          },
+          {
+            name: 'permission-create',
+            path: 'create',
+            component: CreatePermission,
           },
         ],
       },

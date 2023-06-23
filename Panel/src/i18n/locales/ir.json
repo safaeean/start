@@ -330,7 +330,9 @@
     "blog": "بلاگ",
     "posts": "پست ها",
     "setting": "تنظیمات",
-    "categories": "دسته ها"
+    "categories": "دسته ها",
+    "permissions": "دسترسی ها",
+    "roles": "نقش ها"
   },
   "messages": {
     "all": "مشاهده همه پیام ها",
@@ -540,7 +542,12 @@
       "websiteTitle": "عنوان سایت",
       "websiteDescription": "توضیحات سایت",
       "websiteColor": "رنگ اصلی",
-      "websiteSecondaryColor": "رنگ دوم"
+      "websiteSecondaryColor": "رنگ دوم",
+      "role_guard_name": "نام نقش",
+      "role_name": "عنوان نمایشی نقش",
+      "permission_guard_name": "نام دسترسی",
+      "permission_name": "عنوان نمایشی نقش",
+      "permissions": "دسترسی ها"
     }
   },
   "save": "ذخیره",
@@ -554,6 +561,14 @@
   "categories": {
     "editCategory" : "ویرایش دسته",
     "createCategory" : "ایجاد دسته جدید"
+  },
+  "roles": {
+    "editRole" : "ویرایش نقش",
+    "createRole" : "ایحاد نقش"
+  },
+  "permissions": {
+    "editPermission" : "ویرایش دسترسی",
+    "createPermission" : "ایجاد دسترسی"
   },
   "settings": {
     "settings" : "تنظیمات"

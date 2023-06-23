@@ -51,6 +51,24 @@ export default {
       ],
     },
     {
+      name: 'permissions',
+      displayName: 'menu.permissions',
+      meta: {
+        icon: 'fa fa-key',
+      },
+      disabled: true,
+      children: [
+        {
+          name: 'roles',
+          displayName: 'menu.roles',
+        },
+        {
+          name: 'permissions',
+          displayName: 'menu.permissions',
+        }
+      ],
+    },
+    {
       name: 'setting',
       displayName: 'menu.setting',
       meta: {

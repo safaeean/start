@@ -347,7 +347,9 @@
     "blog": "Blog",
     "posts": "Posts",
     "setting": "Setting",
-    "categories": "Categories"
+    "categories": "Categories",
+    "permissions": "Permissions",
+    "roles": "Roles"
   },
   "messages": {
     "all": "See all messages",
@@ -613,7 +615,12 @@
       "websiteTitle": "Website title",
       "websiteDescription": "Website description",
       "websiteColor": "Website color",
-      "websiteSecondaryColor": "Website secondary color"
+      "websiteSecondaryColor": "Website secondary color",
+      "role_guard_name": "Role guard name",
+      "role_name": "Role name",
+      "permission_guard_name": "Permission guard name",
+      "permission_name": "Permission name",
+      "permissions": "Permissions",
     }
   },
   "save": "Save",
@@ -627,6 +634,14 @@
   "categories": {
     "editCategory" : "Edit Category",
     "createCategory" : "Create category"
+  },
+  "roles": {
+    "editRole" : "Edit role",
+    "createRole" : "Create role"
+  },
+  "permissions": {
+    "editPermission" : "Edit permission",
+    "createPermission" : "Create permission"
   },
   "settings": {
     "settings" : "Settings"

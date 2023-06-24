@@ -13,24 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::resource('user', 'UserController');
+Route::resource('user', 'UserController');
 
-    Route::group(['prefix' => 'reports'], function () {
-        Route::group(['prefix' => 'charts'], function () {
-            Route::group(['prefix' => 'dashboard'], function () {
-                Route::get('all', 'DashboardReportsController@all');
-            });
+Route::group(['prefix' => 'reports'], function () {
+    Route::group(['prefix' => 'charts'], function () {
+        Route::group(['prefix' => 'dashboard'], function () {
+            Route::get('all', 'DashboardReportsController@all');
         });
     });
+});
 
 
-    Route::group(['prefix' => 'blog'], function () {
-        Route::resource('post', 'PostController');
-        Route::resource('category', 'CategoryController');
-    });
-    Route::resource('role', 'RoleController');
-    Route::resource('permission', 'PermissionController');
-    Route::resource('setting', 'SettingController')->only(['index', 'store']);
-})->middleware('auth:sanctum');
+Route::group(['prefix' => 'blog'], function () {
+    Route::resource('post', 'PostController');
+    Route::resource('category', 'CategoryController');
+});
+Route::resource('role', 'RoleController');
+Route::resource('permission', 'PermissionController');
+Route::resource('setting', 'SettingController')->only(['index', 'store']);
 

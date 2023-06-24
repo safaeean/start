@@ -31,11 +31,11 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')
-                ->group(base_path('routes/api.php'));
+                ->group(base_path('routes/auth.php'));
 
-            Route::middleware('api')
+            Route::middleware(['api' , 'auth:sanctum'])
                 ->namespace('\App\Http\Controllers\Admin')
-                ->prefix('api')
+                ->prefix('api/admin')
                 ->group(base_path('routes/admin.php'));
 
             Route::middleware('web')

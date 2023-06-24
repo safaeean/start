@@ -29,19 +29,19 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/auth.php'));
+            Route::group(['prefix' => 'api'], function () {
+                Route::middleware('api')
+                    ->group(base_path('routes/auth.php'));
 
-            Route::middleware(['api' , 'auth:sanctum'])
-                ->namespace('\App\Http\Controllers\Admin')
-                ->prefix('api/admin')
-                ->group(base_path('routes/admin.php'));
+                Route::middleware(['api', 'auth:sanctum'])
+                    ->namespace('\App\Http\Controllers\Admin')
+                    ->prefix('admin')
+                    ->group(base_path('routes/admin.php'));
 
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                Route::middleware('web')
+                    ->group(base_path('routes/web.php'));
+            });
         });
-
 
 
     }

@@ -45,9 +45,8 @@ PostController extends Controller
                 throw new \Exception($validator->errors()->first());
 
             Post::query()->create($validator->validated());
-
             return [
-                'message' => 'Post created successfully'
+                'message' => __('messages.create.successfully', ['model' => __('model.post')])
             ];
         } catch (\Exception $e) {
             return [
@@ -86,7 +85,7 @@ PostController extends Controller
 
             $post->update($validator->validated());
             return [
-                'message' => 'Post updated successfully'
+                'message' => __('messages.update.successfully', ['model' => __('model.post')])
             ];
         } catch (\Exception $e) {
             return [

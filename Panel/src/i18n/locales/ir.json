@@ -547,7 +547,8 @@
       "role_name": "عنوان نمایشی نقش",
       "permission_guard_name": "نام دسترسی",
       "permission_name": "عنوان نمایشی نقش",
-      "permissions": "دسترسی ها"
+      "permissions": "دسترسی ها",
+      "roles": "نقش ها"
     }
   },
   "save": "ذخیره",

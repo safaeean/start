@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        $user->load('roles');
+        $user->roles = $user->roles()->pluck('id');
         return compact('user');
     }
     public function update(User $user, Request $request)
@@ -36,7 +36,7 @@ class UserController extends Controller
             $user->roles()->sync($request->user['roles']);
 
             return [
-                'message' => 'User updated successfully'
+                'message' => __('messages.update.successfully', ['model' => __('model.user')])
             ];
         }catch (\Exception $e){
             return [

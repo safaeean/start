@@ -58,8 +58,7 @@ class RoleController extends Controller
 
 
             return [
-                'status' => true,
-                'message' => 'Role created successfully'
+                'message' => __('messages.create.successfully', ['model' => __('model.role')])
             ];
         } catch (\Exception $e) {
             return [
@@ -118,8 +117,7 @@ class RoleController extends Controller
             $role->permissions()->sync($request->role['permissions']);
 
             return [
-                'status' => true,
-                'message' => 'Role updated successfully'
+                'message' => __('messages.update.successfully', ['model' => __('model.role')])
             ];
         } catch (\Exception $e) {
             return [

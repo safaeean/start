@@ -43,7 +43,7 @@ class CategoryController extends Controller
             Category::query()->create($validator->validated());
 
             return [
-                'message' => 'Category created successfully'
+                'message' => __('messages.create.successfully', ['model' => __('model.category')])
             ];
         } catch (\Exception $e) {
             return [
@@ -82,7 +82,7 @@ class CategoryController extends Controller
 
             $category->update($validator->validated());
             return [
-                'message' => 'Category updated successfully'
+                'message' => __('messages.update.successfully', ['model' => __('model.category')])
             ];
         } catch (\Exception $e) {
             return [

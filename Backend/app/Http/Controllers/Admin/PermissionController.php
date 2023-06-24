@@ -55,8 +55,7 @@ class PermissionController extends Controller
             $permission = Permission::create($validator->validated());
 
             return [
-                'status' => true,
-                'message' => 'Permission created successfully'
+                'message' => __('messages.create.successfully', ['model' => __('model.permission')])
             ];
         } catch (\Exception $e) {
             return [
@@ -112,8 +111,7 @@ class PermissionController extends Controller
             $permission->update($validator->validated());
 
             return [
-                'status' => true,
-                'message' => 'Permission updated successfully'
+                'message' => __('messages.update.successfully', ['model' => __('model.permission')])
             ];
         } catch (\Exception $e) {
             return [

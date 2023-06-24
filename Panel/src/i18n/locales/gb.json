@@ -621,6 +621,7 @@
       "permission_guard_name": "Permission guard name",
       "permission_name": "Permission name",
       "permissions": "Permissions",
+      "roles": "Roles"
     }
   },
   "save": "Save",

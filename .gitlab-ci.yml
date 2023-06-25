@@ -28,4 +28,5 @@ test:
     - sleep 60
     - docker-compose exec -T php composer install
     - docker-compose exec -T php php artisan migrate
+    - docker-compose exec -T php php artisan db:seed
     - docker-compose exec -T php vendor/bin/phpunit

@@ -1,0 +1,29 @@
+variables:
+  DOCKER_DRIVER: overlay2
+stages:
+  - test
+
+test:
+  stage: test
+  image: docker
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+
+  services:
+    - name: docker:dind
+      command: [ "--mtu=1440" ]
+
+  before_script:
+    - apk add docker-compose
+    - docker info
+    - docker network create proxy
+    - docker-compose --version
+    - apk update && apk add bash
+  script:
+    - cp .env.example .env
+    - docker-compose up -d
+    - docker-compose exec -T php composer install
+    - docker-compose exec -T php php artisan migrate
+    - docker-compose exec -T php vendor/bin/phpunit

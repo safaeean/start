@@ -25,6 +25,7 @@ test:
     - cp .env.example .env
     - cp Backend/.env.example Backend/.env
     - docker-compose up -d
+    - sleep 60
     - docker-compose exec -T php composer install
     - docker-compose exec -T php php artisan migrate
     - docker-compose exec -T php vendor/bin/phpunit

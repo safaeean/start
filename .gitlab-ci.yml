@@ -23,6 +23,7 @@ test:
     - apk update && apk add bash
   script:
     - cp .env.example .env
+    - cp /Backend/.env.example /Backend/.env
     - docker-compose up -d
     - docker-compose exec -T php composer install
     - docker-compose exec -T php php artisan migrate

@@ -1,3 +1,12 @@
+## Status
+
+[![pipeline status](https://gitlab.com/safaeean/start/badges/master/pipeline.svg)](https://gitlab.com/safaeean/start/-/commits/master)
+[![Latest Release](https://gitlab.com/safaeean/start/-/badges/release.svg)](https://gitlab.com/safaeean/start/-/releases)
+[![coverage report](https://gitlab.com/safaeean/start/badges/master/coverage.svg)](https://gitlab.com/safaeean/start/-/commits/master)
+![example workflow](https://github.com/safaeean/start/actions/workflows/push.yml/badge.svg)
+
+
+
 ## Minimal Laravel backend + Vue admin panel + Nuxt frontend (Dockerized)
 
 This project is a Dockerized application that combines a minimal Laravel backend, a Vue-based admin panel, and a Nuxt frontend. It provides the essential features and functionality required for managing and presenting data efficiently. The Laravel backend handles server-side logic, while the Vue admin panel enables easy administration and configuration. The Nuxt frontend ensures a seamless user experience with optimized rendering and routing. Together, they form a cohesive system that allows for building web applications with a basic yet effective set of features

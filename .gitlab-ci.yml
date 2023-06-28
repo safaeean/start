@@ -4,8 +4,8 @@ stages:
   - backend-test
   - front-test
 
-backend-test:
-  stage: test
+backend:
+  stage: backend-test
   image: docker
   variables:
     DOCKER_HOST: tcp://docker:2375/
@@ -33,8 +33,8 @@ backend-test:
     - docker-compose exec -T php php artisan db:seed
     - docker-compose exec -T php vendor/bin/phpunit
 
-front-test:
-  stage: test
+front:
+  stage: front-test
   image: docker
   variables:
     DOCKER_HOST: tcp://docker:2375/

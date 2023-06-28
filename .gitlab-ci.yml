@@ -1,10 +1,10 @@
 variables:
   DOCKER_DRIVER: overlay2
 stages:
-  - backend_test
-  - front_test
+  - backend-test
+  - front-test
 
-backend_test:
+backend-test:
   stage: test
   image: docker
   variables:
@@ -33,7 +33,7 @@ backend_test:
     - docker-compose exec -T php php artisan db:seed
     - docker-compose exec -T php vendor/bin/phpunit
 
-front_test:
+front-test:
   stage: test
   image: docker
   variables:

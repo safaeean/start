@@ -80,6 +80,6 @@ panel:
   script:
     - cp .env.example .env
     - docker-compose up -d
-    - docker-compose exec -T front npm install
-    - docker-compose exec -T front npm run test
+    - docker-compose exec -T panel npm install
+    - docker-compose exec -T panel npm run test
 

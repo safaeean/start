@@ -1,8 +1,9 @@
 variables:
   DOCKER_DRIVER: overlay2
 stages:
-  - backend-test
   - front-test
+  - panel-test
+  - backend-test
 
 backend:
   stage: backend-test
@@ -52,6 +53,32 @@ front:
     - docker-compose --version
     - apk update && apk add bash
   script:
+    - cp .env.example .env
+    - docker-compose up -d
+    - docker-compose exec -T front npm install
+    - docker-compose exec -T front npm run test
+
+
+panel:
+  stage: panel-test
+  image: docker
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+
+  services:
+    - name: docker:dind
+      command: [ "--mtu=1440" ]
+
+  before_script:
+    - apk add docker-compose
+    - docker info
+    - docker network create proxy
+    - docker-compose --version
+    - apk update && apk add bash
+  script:
+    - cp .env.example .env
     - docker-compose up -d
     - docker-compose exec -T front npm install
     - docker-compose exec -T front npm run test

@@ -21,5 +21,10 @@ jobs:
         run: docker-compose exec -T php composer install
       - name: Generate laravel key
         run: docker-compose exec -T php php artisan key:generate
-      - name: test
+      - name: Sleep for 1 minutes to mysql start
+        run: sleep 60s
+        shell: bash
+      - name: Migrate database
+        run: docker-compose exec -T php php artisan migrate
+      - name: Test
         run: docker-compose exec -T php php artisan test

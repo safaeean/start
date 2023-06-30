@@ -11,5 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: copy env file
+        run: cp .env.example .env
+      - name: copy backend env file
+        run: cp Backend/.env.example Backend/.env
       - name: Build the stack
         run: docker-compose up -d
+      - name: Composer
+        run: docker-compose exec -T php composer install
+      - name: Generate laravel key
+        run: docker-compose exec -T php php artisan key:generate
+      - name: test
+        run: docker-compose exec -T php php artisan test

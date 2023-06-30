@@ -1,4 +1,4 @@
-name: Docker compose
+name: Test pipeline
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  test:
+  backednd-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,8 +21,8 @@ jobs:
         run: docker-compose exec -T php composer install
       - name: Generate laravel key
         run: docker-compose exec -T php php artisan key:generate
-      - name: Sleep for 1 minutes to mysql start
-        run: sleep 60s
+      - name: Sleep for 20 seconds to mysql start
+        run: sleep 20s
         shell: bash
       - name: Migrate database
         run: docker-compose exec -T php php artisan migrate
@@ -30,3 +30,33 @@ jobs:
         run: docker-compose exec -T php php artisan db:seed
       - name: Test
         run: docker-compose exec -T php php artisan test
+
+  front-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: copy env file
+        run: cp .env.example .env
+      - name: Build the stack
+        run: docker-compose up -d
+      - name: Sleep for 20 seconds to mysql start
+        run: sleep 20s
+      - name: NPM install
+        run: docker-compose exec -T front npm install
+      - name: NPM test
+        run: docker-compose exec -T front npm run test
+
+  panel-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: copy env file
+        run: cp .env.example .env
+      - name: Build the stack
+        run: docker-compose up -d
+      - name: Sleep for 20 seconds to mysql start
+        run: sleep 20s
+      - name: NPM install
+        run: docker-compose exec -T panel npm install
+      - name: NPM test
+        run: docker-compose exec -T panel npm run test

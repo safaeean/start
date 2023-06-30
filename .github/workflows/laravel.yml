@@ -33,6 +33,9 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
       working-directory: ./Backend
+    - name: Migrate database
+      run: php artisan migrate
+      working-directory: ./Backend
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite

@@ -25,4 +25,4 @@ Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 've
 Route::post('/email/verify/resend', [EmailVerificationController::class, 'resend'])->middleware(['auth:sanctum'])->name('verification.resend');
 
 Route::post('/password/email', [ResetPasswordController::class, 'sendPasswordResetLinkEmail'])->middleware('throttle:5,1')->name('password.email');
-Route::post('/password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.reset');
+Route::post('/password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');

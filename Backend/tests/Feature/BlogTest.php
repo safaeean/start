@@ -22,6 +22,7 @@ class BlogTest extends TestCase
      */
     public function test_the_blog_post_api_returns_a_successful_response(): void
     {
+        Post::factory(10)->create();
         $post = Post::query()->first();
         $response = $this->get("/api/blog/post/{$post->id}");
         $response->assertStatus(200);

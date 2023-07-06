@@ -26,8 +26,6 @@ jobs:
         shell: bash
       - name: Migrate database
         run: docker-compose exec -T php php artisan migrate
-      - name: Database seed
-        run: docker-compose exec -T php php artisan db:seed
       - name: Test
         run: docker-compose exec -T php php artisan test
 

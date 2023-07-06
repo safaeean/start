@@ -14,4 +14,14 @@ class EmailVerificationController extends Controller
         return redirect('/');
     }
 
+
+    public function resend()
+    {
+        if (auth()->user()->hasVerifiedEmail())
+            return response()->json(["status" => 'Verified user cannot resend email'], 204);
+
+        auth()->user()->sendEmailVerificationNotification();
+        return response()->json(["status" => 'Verification e-mail send.', "email" => auth()->user()->email], 202);
+    }
+
 }

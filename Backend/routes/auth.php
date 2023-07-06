@@ -21,3 +21,4 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/register', [LoginController::class , 'signup'])->name('register');
 
 Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
+Route::post('/email/verify/resend', [EmailVerificationController::class, 'resend'])->middleware(['auth:sanctum'])->name('verification.resend');

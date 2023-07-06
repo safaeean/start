@@ -17,7 +17,7 @@ Route::middleware('auth:sanctum')->get('/api/user', function (Request $request) 
 });
 
 
-Route::post('/login', [LoginController::class , 'login'])->name('login');
+Route::post('/login', [LoginController::class , 'login'])->name('login')->middleware("throttle:5,2");
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/register', [LoginController::class , 'signup'])->name('register');
 

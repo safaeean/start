@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,5 +15,6 @@ Route::middleware('auth:sanctum')->get('/api/user', function (Request $request) 
 });
 
 
-Route::post('/login' , \App\Http\Controllers\Auth\LoginController::class);
-Route::post('/register' , \App\Http\Controllers\Auth\LoginController::class)->name('register');
+Route::post('/login', [LoginController::class , 'login'])->name('login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/register', [LoginController::class , 'signup'])->name('register');

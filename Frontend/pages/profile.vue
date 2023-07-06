@@ -1,17 +1,14 @@
 <template>
   <section id="services">
     <client-only>
-      <div class="container" v-if="user">
+      <div v-if="user" class="container">
         <div class="form-group">
           <label for="name">Name :</label>
-          <input type="text" class="form-control" id="name" v-model="user.name" required>
+          <input id="name" v-model="user.name" type="text" class="form-control" required>
         </div>
         <div class="form-group">
-          <label for="email">Email :</label>
-          <input type="email" class="form-control" id="email" v-model="user.email" required>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success">Register</button>
+          <button type="submit" class="btn btn-success">Update Profile</button>
+          <button class="btn btn-danger" type="submit" @click="logout">Logout</button>
         </div>
       </div>
     </client-only>
@@ -23,6 +20,13 @@ export default {
   data () {
     return {
       user: this.$auth.user
+    }
+  },
+  methods: {
+    logout () {
+      this.$auth.logout().then(function () {
+        window.location.replace('/')
+      })
     }
   }
 }

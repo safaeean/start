@@ -19,4 +19,15 @@ class LoginController extends Controller
             throw new AuthenticationException();
         }
     }
+
+    /*
+	 * Revoke token; only remove token that is used to perform logout (i.e. will not revoke all tokens)
+	*/
+    public function logout(Request $request) {
+
+        Auth::user()->tokens()->delete();
+        //$request->user->tokens()->delete(); // use this to revoke all tokens (logout from all devices)
+        return response()->json(null, 204);
+    }
+
 }

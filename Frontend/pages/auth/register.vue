@@ -70,14 +70,23 @@ export default {
         })
       }).catch(function (data) {
         console.log(data)
-        data.response.data.errors.forEach(function (error) {
+        if(data.response.errors){
+          data.response.errors.forEach(function (error) {
+            Swal({
+              title: 'Error!',
+              text: error,
+              icon: 'error',
+              confirmButtonText: 'Cool'
+            })
+          })
+        } else {
           Swal({
             title: 'Error!',
-            text: error,
+            text: 'Error',
             icon: 'error',
             confirmButtonText: 'Cool'
           })
-        })
+        }
       })
       this.$nuxt.$loading.finish()
     }

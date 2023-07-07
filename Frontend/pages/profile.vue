@@ -8,7 +8,8 @@
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-success">Update Profile</button>
-          <button class="btn btn-danger" type="submit" @click="logout">Logout</button>
+          <button class="btn btn-danger" type="button" @click="logout">Logout</button>
+          <button v-if="!user.email_verified_at" class="btn btn-info" type="button" @click="sendEmailVerification">Send email verification</button>
         </div>
       </div>
     </client-only>
@@ -16,6 +17,9 @@
 </template>
 
 <script>
+import Swal from 'sweetalert'
+import axios from 'axios'
+
 export default {
   data () {
     return {
@@ -26,6 +30,17 @@ export default {
     logout () {
       this.$auth.logout().then(function () {
         window.location.replace('/')
+      })
+    },
+    sendEmailVerification () {
+      axios.post('/api/email/verify/resend').then(function (data) {
+        console.log(data)
+        Swal({
+          title: 'Success!',
+          text: data.data.status,
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
       })
     }
   }

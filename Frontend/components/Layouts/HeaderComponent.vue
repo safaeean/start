@@ -42,6 +42,11 @@
                   {{ $auth.$state.user.name }}
                 </NuxtLink>
               </li>
+              <li v-if="$auth.loggedIn && $auth.$state.user.is_admin">
+                <a href="/admin/dashboard">
+                  Admin Panel
+                </a>
+              </li>
             </client-only>
           </ul>
         </div>

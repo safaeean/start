@@ -54,7 +54,8 @@ class RoleController extends Controller
         try {
             $role = Role::create($validator->validated());
 
-            $role->permissions()->sync($request->role['permissions']);
+            if(isset($request->role['permissions']))
+                $role->permissions()->sync($request->role['permissions']);
 
 
             return [

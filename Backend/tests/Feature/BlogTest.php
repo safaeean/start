@@ -5,6 +5,7 @@ namespace Tests\Feature;
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Blog\Post;
 use App\Models\User;
+use Database\Seeders\DefaultAdminSeeder;
 use Tests\TestCase;
 
 class BlogTest extends TestCase
@@ -23,7 +24,7 @@ class BlogTest extends TestCase
      */
     public function test_the_blog_post_api_returns_a_successful_response(): void
     {
-        User::factory(10)->create();
+        (new DefaultAdminSeeder())->run();
         Post::factory(10)->create();
         $post = Post::query()->first();
         $response = $this->get("/api/blog/post/{$post->id}");

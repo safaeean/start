@@ -11,6 +11,18 @@
 
 This project is a Dockerized application that combines a minimal Laravel backend, a Vue-based admin panel, and a Nuxt frontend. It provides the essential features and functionality required for managing and presenting data efficiently. The Laravel backend handles server-side logic, while the Vue admin panel enables easy administration and configuration. The Nuxt frontend ensures a seamless user experience with optimized rendering and routing. Together, they form a cohesive system that allows for building web applications with a basic yet effective set of features
 
+
+### Features
+- User authentication and authorization:
+   - User registration and login
+   - Password reset functionality
+   - Email verification for user accounts
+   - User management with different roles and permissions
+   - Ability to create and modify roles and permissions
+- Manage blog posts:
+   - Create, edit blog posts
+   - Categorize blog posts into different categories
+
 ### Admin panel:
 
 Vuestic Admin: https://github.com/epicmaxco/vuestic-admin

@@ -12,6 +12,7 @@
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-success">Login</button>
+          <nuxt-link to="/auth/reset-password">I forgot my password</nuxt-link>
         </div>
       </form>
     </div>

@@ -31,7 +31,11 @@ class ResetPasswordController extends Controller
         }
     }
 
-    public function resetPassword(Request $request)
+    public function resetPassword(Request $request){
+        return redirect()->to(url("/auth/reset-password" , $request->all()));
+    }
+
+    public function updatePassword(Request $request)
     {
         $request->validate([
             'token' => 'required',

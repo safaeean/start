@@ -14,6 +14,8 @@ class ApiAuthTestCase extends TestCase
 
     protected $invalidPassword = 'invalid';
 
+    protected $getUserRoute;
+
     protected $loginRoute;
 
     protected $logoutRoute;
@@ -50,6 +52,7 @@ class ApiAuthTestCase extends TestCase
         parent::setUp();
         $this->loginRoute = route('login');
         $this->logoutRoute = route('logout');
+        $this->getUserRoute = route('user');
         $this->passwordEmailRoute = route('password.email');
         $this->passwordResetRoute = route('password.update');
         $this->registerRoute = route('register');

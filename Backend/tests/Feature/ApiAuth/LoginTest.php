@@ -44,9 +44,26 @@ class LoginTest extends ApiAuthTestCase
             'email' => $this->validEmail,
             'password' => $this->validPassword,
         ]);
+        $user = User::query()->where('email' , $this->validEmail)->first();
 
         $response->assertStatus(200);
-        $this->assertAuthenticatedAs($response->user);
+        $this->assertTrue($response->user->email == $user->email);
+
+        $token = $response['access_token'];
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $token,
+        ])->get(route('user'));
+
+        $response->assertStatus(200);
+
+        $response->assertJson([
+            'id' => $user->id,
+            'name' => $user->name,
+            // سایر فیلدهای موردنیاز
+        ]);
+
+
     }
 
     /** @test */

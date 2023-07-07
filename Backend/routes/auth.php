@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/api/user', function (Request $request) {
     return $request->user();
-});
+})->name('user');
 
 
 Route::post('/login', [LoginController::class , 'login'])->name('login')->middleware("throttle:5,2");

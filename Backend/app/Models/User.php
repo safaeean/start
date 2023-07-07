@@ -32,6 +32,7 @@ class User extends BaseModel implements AuthenticatableContract, AuthorizableCon
         'password',
     ];
 
+    protected $appends = ['is_admin'];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -56,6 +57,16 @@ class User extends BaseModel implements AuthenticatableContract, AuthorizableCon
     {
         return $q->where('name', 'like', "%{$keyword}%");
     }
+
+
+    public function getIsAdminAttribute()
+    {
+        return $this->roles()->where('name' , 'root')->orWhereHas('permissions',function ($permissions){
+            $permissions->where('name' , 'admin_panel');
+        })->exists();
+    }
+
+
     /**
      * Determine if the user has verified their email address.
      *

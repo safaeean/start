@@ -17,6 +17,10 @@ export const useGlobalStore = defineStore('global', {
       this.user = await axios
         .get('/api/api/user')
         .then(function (response) {
+          if(!response.data.is_admin){
+            window.location.replace('/')
+            return;
+          }
           return response.data
         })
         .catch(function () {

@@ -17,6 +17,11 @@ export default {
       post: {}
     }
   },
+  head () {
+    return {
+      title: this.post.title
+    }
+  },
   async fetch () {
     this.post = await this.$axios.$get(`/api/blog/post/${this.$route.params.slug}`)
   }

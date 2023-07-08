@@ -8,7 +8,8 @@
 
 <script>
 
-import Post from '@/pages/blog/components/Post.vue'
+
+import Post from '../../components/Blog/Post.vue'
 
 export default {
   name: 'BlogPage',

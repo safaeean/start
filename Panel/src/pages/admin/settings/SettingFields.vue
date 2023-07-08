@@ -37,14 +37,9 @@
 <script setup>
 
 import {ref} from 'vue'
-import {useRouter} from 'vue-router';
 
 import {useI18n} from "vue-i18n";
 const { t } = useI18n()
-
-const router = useRouter()
-
-const props = defineProps(["user"])
 
 
 const setting = ref({})
@@ -57,12 +52,12 @@ const globalProperties = app.appContext.config.globalProperties
 
 
 globalProperties.$httpGet("/api/admin/setting/", function (data) {
-  setting.value = data.setting;
+  setting.value = data.setting.length ? data.setting : {};
 })
 const {init} = useToast()
 
 function handleSubmit() {
-  globalProperties.$httpPost("/api/admin/setting", setting.value.id , {setting: setting.value}, function (data) {
+  globalProperties.$httpPost("/api/admin/setting", null , {setting: setting.value}, function (data) {
     init({
       message: data.message
     })

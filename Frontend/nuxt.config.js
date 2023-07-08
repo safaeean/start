@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -54,6 +56,12 @@ export default {
   axios: {
     baseURL: 'http://web',
     browserBaseURL: '/' //can use environment variables to fill both..
+  },
+  sitemap: {
+    routes: async () => {
+      const { data } = await axios.get('http://web/api/blog/posts')
+      return data.data.map((post) => `/blog/post/${post.id}`)
+    }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

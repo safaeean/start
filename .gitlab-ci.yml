@@ -1,10 +1,10 @@
 variables:
   DOCKER_DRIVER: overlay2
 stages:
+  - full-test
   - front-test
   - panel-test
   - backend-test
-  - full-test
 
 backend:
   stage: backend-test
@@ -103,6 +103,7 @@ full:
     - apk update && apk add bash
   script:
     - cp .env.example .env
+    - cp Backend/.env.example Backend/.env
     - docker-compose up -d
     - docker-compose exec -T panel npm install
     - docker-compose exec -T front npm install

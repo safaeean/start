@@ -14,13 +14,13 @@ export default {
       config: {}
     }
   },
+  async fetch () {
+    this.config = await this.$axios.$get('/api/config')
+  },
   head () {
     return {
       title: this.config.name + ' | ' + this.config.title
     }
-  },
-  async fetch () {
-    this.config = await this.$axios.$get('/api/config')
   }
 }
 </script>

@@ -24,7 +24,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return ['setting' => Option::query()->pluck('value' , 'name')];
+        return ['setting' => collect(['name' => ''])->merge(Option::query()->pluck('value' , 'name'))];
     }
 
 

@@ -52,7 +52,7 @@ const globalProperties = app.appContext.config.globalProperties
 
 
 globalProperties.$httpGet("/api/admin/setting/", function (data) {
-  setting.value = data.setting.length ? data.setting : {};
+  setting.value = data.setting;
 })
 const {init} = useToast()
 

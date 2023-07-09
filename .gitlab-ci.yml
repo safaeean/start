@@ -97,6 +97,7 @@ full:
 
   before_script:
     - apk add docker-compose
+    - apk add curl
     - docker info
     - docker network create proxy
     - docker-compose --version

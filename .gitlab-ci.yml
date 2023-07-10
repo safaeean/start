@@ -112,6 +112,6 @@ full:
     - docker-compose exec -T php composer install
     - docker-compose exec -T php php artisan key:generate
     - docker-compose exec -T php php artisan migrate
-    - curl -I localhost:80
+    - curl -I 127.0.0.1:80
     - echo "Test completed."
 

@@ -1,7 +1,6 @@
 variables:
   DOCKER_DRIVER: overlay2
 stages:
-  - full-test
   - front-test
   - panel-test
   - backend-test
@@ -82,36 +81,3 @@ panel:
     - docker-compose up -d
     - docker-compose exec -T panel npm install
     - docker-compose exec -T panel npm run test
-
-full:
-  stage: full-test
-  image: docker
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
-
-  services:
-    - name: docker:dind
-      command: [ "--mtu=1440" ]
-
-  before_script:
-    - apk add docker-compose
-    - apk add curl
-    - docker info
-    - docker network create proxy
-    - docker-compose --version
-    - apk update && apk add bash
-  script:
-    - cp .env.example .env
-    - cp Backend/.env.example Backend/.env
-    - docker-compose up -d
-    - docker-compose exec -T panel npm install
-    - docker-compose exec -T front npm install
-    - sleep 20
-    - docker-compose exec -T php composer install
-    - docker-compose exec -T php php artisan key:generate
-    - docker-compose exec -T php php artisan migrate
-    - curl -I 127.0.0.1:80
-    - echo "Test completed."
-

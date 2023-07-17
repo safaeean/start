@@ -26,7 +26,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.post.content.replace(/<[^>]*>/g, '')
+          content: this.post.description
         }
       ]
     }

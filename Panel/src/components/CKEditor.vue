@@ -32,6 +32,7 @@ export default {
       setTimeout(() => {
         this.localValue = this.value
       }, 600)
+      console.log(this.lang)
     },
     onChange(data) {
       this.$emit('change', {data: data});

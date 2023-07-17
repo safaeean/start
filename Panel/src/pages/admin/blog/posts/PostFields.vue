@@ -13,7 +13,11 @@
       </div>
       <div class="row">
         <div class="flex md12">
-          <va-input v-model="post.content" type="textarea" :label="t('table.column.content')"/>
+          <ck-editor
+            :lang="t('lang')"
+            :value="post.content"
+            @change="post.content = $event.data"
+          ></ck-editor>
         </div>
       </div>
       <div class="row">
@@ -49,11 +53,11 @@ const router = useRouter()
 
 const props = defineProps(["post"])
 
-
 const post = ref({})
 
 import {getCurrentInstance} from 'vue'
 import {useToast} from "vuestic-ui";
+import CkEditor from "../../../../components/CKEditor.vue";
 
 const app = getCurrentInstance()
 const globalProperties = app.appContext.config.globalProperties

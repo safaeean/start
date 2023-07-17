@@ -3,7 +3,7 @@
     <div class="container">
       <h1>{{ post.title }}</h1>
       <hr>
-      {{ post.content }}
+      <p v-html="post.content"></p>
     </div><!--/.container-->
   </section><!--/#services-->
 </template>

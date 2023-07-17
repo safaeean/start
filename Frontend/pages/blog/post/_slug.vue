@@ -14,16 +14,26 @@ export default {
   props: ['slug'],
   data: () => {
     return {
+      config: {},
       post: {}
     }
   },
   head () {
     return {
-      title: this.post.title
+      title: this.post.title + ' | ' + this.config.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.content.replace(/<[^>]*>/g, '')
+        }
+      ]
     }
   },
   async fetch () {
     this.post = await this.$axios.$get(`/api/blog/post/${this.$route.params.slug}`)
+    this.config = await this.$axios.$get('/api/config')
   }
 }
 </script>

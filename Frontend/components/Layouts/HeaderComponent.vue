@@ -16,17 +16,17 @@
 
         <div class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
+            <li>
+              <NuxtLink to="/">
+                Home
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/blog">
+                Blog
+              </NuxtLink>
+            </li>
             <client-only>
-              <li>
-                <NuxtLink to="/">
-                  Home
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/blog">
-                  Blog
-                </NuxtLink>
-              </li>
               <li v-if="!$auth.loggedIn">
                 <NuxtLink to="/auth/register">
                   Register
@@ -65,7 +65,7 @@ export default {
 </script>
 <style>
 .collapse {
-  visibility: inherit!important;
+  visibility: inherit !important;
 }
 </style>
 <style>

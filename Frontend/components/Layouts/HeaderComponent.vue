@@ -10,7 +10,7 @@
             <span class="icon-bar" />
           </button>
           <NuxtLink class="navbar-brand" to="/">
-            <img src="~/assets/images/logo.png" alt="logo">
+            <img :src="this.config.logo || `~/assets/images/logo.png`" class="logo" alt="logo">
           </NuxtLink>
         </div>
 
@@ -58,8 +58,12 @@
 export default {
   data () {
     return {
-      user: this.$auth.user
+      user: this.$auth.user,
+      config: {}
     }
+  },
+  async fetch () {
+    this.config = await this.$axios.$get('/api/config')
   }
 }
 </script>

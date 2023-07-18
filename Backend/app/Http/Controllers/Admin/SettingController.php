@@ -16,7 +16,8 @@ class SettingController extends Controller
         'title' => 'required',
         'description' => 'nullable',
         'color' => 'nullable',
-        'secondary_color' => 'nullable'
+        'secondary_color' => 'nullable',
+        'logo' => 'nullable',
     ];
 
     /**

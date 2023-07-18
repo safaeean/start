@@ -27,6 +27,14 @@
           <va-input v-model="setting.secondary_color" type="color" :label="t('table.column.websiteSecondaryColor')" />
         </div>
       </div>
+      <div class="row">
+        <div class="flex md12">
+          <div class="form-section">
+            <label for="attachments">{{ t('table.column.logo') }}</label>
+            <image-selector :model="setting" :one_file="true" :api="'/api/admin/upload/setting'"/>
+          </div>
+        </div>
+      </div>
 
 
       <el-button native-type="submit">{{ t('save') }}</el-button>
@@ -46,6 +54,7 @@ const setting = ref({})
 
 import {getCurrentInstance} from 'vue'
 import {useToast} from "vuestic-ui";
+import ImageSelector from "../../../components/ImageSelector.vue";
 
 const app = getCurrentInstance()
 const globalProperties = app.appContext.config.globalProperties

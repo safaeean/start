@@ -3,7 +3,7 @@
     <div class="container">
       <h1>{{ post.title }}</h1>
       <hr>
-      <p v-html="post.content"></p>
+      <p v-html="post.content" />
     </div><!--/.container-->
   </section><!--/#services-->
 </template>
@@ -20,7 +20,7 @@ export default {
   },
   head () {
     return {
-      title: this.post.title + ' | ' + this.config.title,
+      title: this.config.name + ' | ' + this.post.title,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {

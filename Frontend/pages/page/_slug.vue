@@ -27,7 +27,7 @@ export default {
   },
   head () {
     return {
-      title: this.page.title + ' | ' + this.config.title,
+      title: this.config.name + ' | ' + this.page.title,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {

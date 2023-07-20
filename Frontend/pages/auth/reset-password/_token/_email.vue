@@ -33,6 +33,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      config: {},
       token: this.$route.params.token,
       email: this.$route.params.email,
       password: '',
@@ -83,6 +84,15 @@ export default {
       })
       this.$nuxt.$loading.finish()
     }
+  },
+  async fetch () {
+    this.config = await this.$axios.$get('/api/config')
+  },
+  head () {
+    return {
+      title: this.config.name + ' | Reset password'
+    }
   }
+
 }
 </script>

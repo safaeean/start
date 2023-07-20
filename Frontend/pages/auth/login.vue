@@ -25,6 +25,7 @@ import Swal from 'sweetalert'
 export default {
   data () {
     return {
+      config: {},
       email: '',
       password: ''
     }
@@ -49,6 +50,14 @@ export default {
         })
       })
       this.$nuxt.$loading.finish()
+    }
+  },
+  async fetch () {
+    this.config = await this.$axios.$get('/api/config')
+  },
+  head () {
+    return {
+      title: this.config.name + ' | Login'
     }
   }
 }

@@ -37,6 +37,7 @@ import Swal from 'sweetalert'
 export default {
   data () {
     return {
+      config: {},
       name: '',
       email: '',
       password: '',
@@ -70,7 +71,7 @@ export default {
         })
       }).catch(function (data) {
         console.log(data)
-        if(data.response.errors){
+        if (data.response.errors){
           data.response.errors.forEach(function (error) {
             Swal({
               title: 'Error!',
@@ -89,6 +90,14 @@ export default {
         }
       })
       this.$nuxt.$loading.finish()
+    }
+  },
+  async fetch () {
+    this.config = await this.$axios.$get('/api/config')
+  },
+  head () {
+    return {
+      title: this.config.name + ' | Register'
     }
   }
 }

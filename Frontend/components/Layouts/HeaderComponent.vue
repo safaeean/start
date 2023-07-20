@@ -44,7 +44,7 @@
               </NuxtLink>
             </li>
             <li v-if="$auth.loggedIn && $auth.$state.user.is_admin" class="nav-item">
-              <a href="/admin/dashboard">
+              <a class="nav-link" href="/admin/dashboard">
                 Admin Panel
               </a>
             </li>

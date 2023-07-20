@@ -40,9 +40,28 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/i18n'
   ],
 
+  i18n: {
+    locales: [
+      {
+        name: "English",
+        code: 'en',
+        file: 'en-US.js'
+      },
+      {
+        name: "Farsi",
+        code: 'fa',
+        file: 'fa-IR.js',
+        dir: 'rtl'
+      }
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    defaultLocale: 'en'
+  },
 
   auth: {
     strategies: {

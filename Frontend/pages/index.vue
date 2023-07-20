@@ -1,8 +1,6 @@
 <template>
   <section id="services">
-    <div class="container">
-      test
-    </div><!--/.container-->
+    <div class="container" v-html="page.content"></div><!--/.container-->
   </section><!--/#services-->
 </template>
 
@@ -11,11 +9,19 @@ export default {
   name: 'IndexPage',
   data () {
     return {
-      config: {}
+      config: {},
+      page: {},
     }
   },
   async fetch () {
     this.config = await this.$axios.$get('/api/config')
+    try {
+      this.page = await this.$axios.$get('/api/page/home')
+    } catch (e) {
+      this.page = {
+        content: 'You can create a page with the slug \'home\' and edit this page through the admin panel.'
+      }
+    }
   },
   head () {
     return {

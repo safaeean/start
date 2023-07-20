@@ -27,6 +27,10 @@ import Permissions from "../pages/admin/permission/Permissions.vue";
 import EditPermission from "../pages/admin/permission/EditPermission.vue";
 import CreatePermission from "../pages/admin/permission/CreatePermission.vue";
 
+import Pages from "../pages/admin/page/Pages.vue";
+import EditPage from "../pages/admin/page/EditPage.vue";
+import CreatePage from "../pages/admin/page/CreatePage.vue";
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/:catchAll(.*)',
@@ -105,6 +109,28 @@ const routes: Array<RouteRecordRaw> = [
             name: 'permission-create',
             path: 'create',
             component: CreatePermission,
+          },
+        ],
+      },
+      {
+        name: 'page',
+        path: 'page',
+        component: RouteViewComponent,
+        children: [
+          {
+            name: 'pages',
+            path: 'pages',
+            component: Pages,
+          },
+          {
+            name: 'page-edit',
+            path: 'edit/:page',
+            component: EditPage,
+          },
+          {
+            name: 'page-create',
+            path: 'create',
+            component: CreatePage,
           },
         ],
       },
@@ -281,8 +307,8 @@ const routes: Array<RouteRecordRaw> = [
         ],
       },
       {
-        name: 'pages',
-        path: 'pages',
+        name: 'extra-pages',
+        path: 'extra-pages',
         component: RouteViewComponent,
         children: [
           {

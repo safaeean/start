@@ -330,6 +330,7 @@
     "users": "کاربران",
     "blog": "بلاگ",
     "posts": "پست ها",
+    "page": "صفحه",
     "setting": "تنظیمات",
     "categories": "دسته ها",
     "permissions": "دسترسی ها",
@@ -549,6 +550,8 @@
       "permission_guard_name": "نام دسترسی",
       "permission_name": "عنوان نمایشی نقش",
       "permissions": "دسترسی ها",
+      "slug": "پیوند یکتا",
+      "active": "فعال بودن",
       "roles": "نقش ها",
       "logo": "لوگو"
     }
@@ -572,6 +575,10 @@
   "permissions": {
     "editPermission" : "ویرایش دسترسی",
     "createPermission" : "ایجاد دسترسی"
+  },
+  "pages": {
+    "editPage" : "ویرایش صفحه",
+    "createPage" : "ایجاد صفحه"
   },
   "settings": {
     "settings" : "تنظیمات"

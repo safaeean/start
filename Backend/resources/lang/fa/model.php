@@ -5,4 +5,5 @@ return [
     'category' => 'دسته',
     'role' => 'نقش',
     'permission' => 'دسترسی',
+    'page' => 'صفحه',
 ];

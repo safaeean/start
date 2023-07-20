@@ -69,6 +69,20 @@ export default {
       ],
     },
     {
+      name: 'page',
+      displayName: 'menu.page',
+      meta: {
+        icon: 'fa fa-book',
+      },
+      disabled: true,
+      children: [
+        {
+          name: 'pages',
+          displayName: 'menu.pages',
+        }
+      ],
+    },
+    {
       name: 'setting',
       displayName: 'menu.setting',
       meta: {
@@ -263,7 +277,7 @@ export default {
       ],
     },
     {
-      name: 'pages',
+      name: '404-pages',
       displayName: 'menu.pages',
       meta: {
         icon: 'vuestic-iconset-files',

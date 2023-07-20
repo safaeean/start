@@ -5,4 +5,5 @@ return [
     'category' => 'category',
     'role' => 'role',
     'permission' => 'permission',
+    'page' => 'page',
 ];

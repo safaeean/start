@@ -350,6 +350,7 @@
     "setting": "Setting",
     "categories": "Categories",
     "permissions": "Permissions",
+    "page": "Page",
     "roles": "Roles"
   },
   "messages": {
@@ -622,6 +623,8 @@
       "permission_guard_name": "Permission guard name",
       "permission_name": "Permission name",
       "permissions": "Permissions",
+      "active": "active",
+      "slug": "slug",
       "roles": "Roles",
       "logo": "Logo"
     }
@@ -645,6 +648,10 @@
   "permissions": {
     "editPermission" : "Edit permission",
     "createPermission" : "Create permission"
+  },
+  "pages": {
+    "editPage" : "Edit page",
+    "createPage" : "Create page"
   },
   "settings": {
     "settings" : "Settings"

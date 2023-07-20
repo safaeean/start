@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Page extends BaseModel
 {
     use HasFactory;
-    protected $fillable = ['title' , 'description' , 'content' , 'active'];
+    protected $fillable = ['title' , 'slug', 'description' , 'content' , 'active'];
 
     protected static function boot()
     {

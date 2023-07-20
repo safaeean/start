@@ -136,9 +136,6 @@ ul.nostyle i {
 border-radius: 0;
 }
 
-.navbar-nav>li>a {
-text-transform: uppercase;
-}
 @-webkit-keyframes scaleIn {
   0% {
     opacity: 0;

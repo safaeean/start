@@ -6,7 +6,7 @@
           &copy; {{ new Date().getFullYear() }} {{ config.name }}.
         </div>
         <div class="col-sm-6">
-          <ul class="social-icons">
+          <ul class="social-icons" :class="this.$i18n.localeProperties.dir === 'rtl' ? 'float-start' : ''">
             <li><a href="#"><i class="fa fa-facebook" /></a></li>
             <li><a href="#"><i class="fa fa-twitter" /></a></li>
             <li><a href="#"><i class="fa fa-google-plus" /></a></li>

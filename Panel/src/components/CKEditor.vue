@@ -1,6 +1,8 @@
 <template>
-  <ckeditor :editor="editor" v-model="localValue" :config="editorConfig" @ready="onReady"
-            @input="onChange"></ckeditor>
+  <div  style="color: black">
+    <ckeditor :editor="editor" v-model="localValue" :config="editorConfig" @ready="onReady"
+              @input="onChange"></ckeditor>
+  </div>
 </template>
 <script>
 

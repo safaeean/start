@@ -1,18 +1,22 @@
 <template>
   <section id="services">
     <div class="container">
-      <form @submit.prevent="login" class="form-horizontal">
-        <div class="form-group">
-          <label for="email">Email :</label>
-          <input type="email" class="form-control" id="email" v-model="email" required>
+      <form class="form-horizontal" @submit.prevent="login">
+        <div class="mb-3">
+          <label class="form-label" for="email">Email :</label>
+          <input id="email" v-model="email" type="email" class="form-control" required>
         </div>
-        <div class="form-group">
-          <label for="password">Password :</label>
-          <input type="password" class="form-control" id="password" v-model="password" required>
+        <div class="mb-3">
+          <label class="form-label" for="password">Password :</label>
+          <input id="password" v-model="password" type="password" class="form-control" required>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success">Login</button>
-          <nuxt-link to="/auth/reset-password">I forgot my password</nuxt-link>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-success">
+            Login
+          </button>
+          <nuxt-link to="/auth/reset-password">
+            I forgot my password
+          </nuxt-link>
         </div>
       </form>
     </div>
@@ -30,8 +34,16 @@ export default {
       password: ''
     }
   },
+  async fetch() {
+    this.config = await this.$axios.$get('/api/config')
+  },
+  head() {
+    return {
+      title: this.config.name + ' | Login'
+    }
+  },
   methods: {
-    login () {
+    login() {
       this.$nuxt.$loading.start()
       this.$auth.loginWith('laravelSanctum', {
         data: {
@@ -50,14 +62,6 @@ export default {
         })
       })
       this.$nuxt.$loading.finish()
-    }
-  },
-  async fetch () {
-    this.config = await this.$axios.$get('/api/config')
-  },
-  head () {
-    return {
-      title: this.config.name + ' | Login'
     }
   }
 }

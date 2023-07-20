@@ -23,8 +23,12 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      config: {},
       user: this.$auth.user
     }
+  },
+  async fetch () {
+    this.config = await this.$axios.$get('/api/config')
   },
   methods: {
     logout () {
@@ -43,9 +47,6 @@ export default {
         })
       })
     }
-  },
-  async fetch () {
-    this.config = await this.$axios.$get('/api/config')
   },
   head () {
     return {

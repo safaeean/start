@@ -2,11 +2,11 @@
   <section id="services">
     <div class="container">
       <form @submit.prevent="reset" class="form-horizontal">
-        <div class="form-group">
+        <div class="mb-3">
           <label for="email">Email :</label>
           <input type="email" class="form-control" id="email" v-model="email" required>
         </div>
-        <div class="form-group">
+        <div>
           <button type="submit" class="btn btn-success">Send me reset password instructions</button>
         </div>
       </form>

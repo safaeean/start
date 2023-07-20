@@ -1,7 +1,9 @@
 <template>
   <section id="services">
     <div class="container">
-      <Post v-for="post in posts.data" :key="post.id" :post="post" />
+      <div class="row">
+        <Post v-for="post in posts.data" :key="post.id" :post="post" />
+      </div>
     </div><!--/.container-->
   </section><!--/#services-->
 </template>
@@ -18,6 +20,10 @@ export default {
       posts: []
     }
   },
+  async fetch () {
+    this.posts = await this.$axios.$get('/api/blog/posts')
+    this.config = await this.$axios.$get('/api/config')
+  },
   head () {
     return {
       title: this.config.name + ' | Blog',
@@ -30,10 +36,6 @@ export default {
         }
       ]
     }
-  },
-  async fetch () {
-    this.posts = await this.$axios.$get('/api/blog/posts')
-    this.config = await this.$axios.$get('/api/config')
   }
 }
 </script>

@@ -168,15 +168,6 @@ text-transform: uppercase;
 /*************************
 *******Header******
 **************************/
-#main-nav.navbar-default {
-background: #FFFFFF;
-/* padding: 10px 0; */
-}
-#main-nav.navbar-default .navbar-nav > li:has(.nuxt-link-exact-active) > a, #main-nav.navbar-default .navbar-nav > li.open > a, #main-nav.navbar-default .navbar-nav > li:hover > a {
-background: #1335A3;
-color: #FFFFFF;
-/* font-weight: bold; */
-}
 .navbar.navbar-default {
   border: 0;
   border-radius: 0;
@@ -188,11 +179,6 @@ color: #FFFFFF;
 .navbar.navbar-default .navbar-brand {
   height: auto;
   padding: 15px 15px 1px;
-}
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
-color: #F8680D;
-
-background: transparent;
 }
 .navbar-default .navbar-nav>li>a{
 color: #FFFFFF;
@@ -222,11 +208,7 @@ box-shadow: 0px 1px 2px rgba(145, 145, 145, 0.6);
 
   #main-nav.navbar-default .navbar-nav > li.open > a,
   #main-nav.navbar-default .navbar-nav > li:hover > a {
-    background: rgb(255, 255, 255);
-
-    color: #456AC0;
-
-    border-top: 4px solid #6083D1;
+    border-bottom: 4px solid #6083D1;
 }
   #main-nav.navbar-default .dropdown-menu {
     padding: 0 20px;

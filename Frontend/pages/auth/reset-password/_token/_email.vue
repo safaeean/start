@@ -2,23 +2,23 @@
   <section id="services">
     <div class="container">
       <form @submit.prevent="reset" class="form-horizontal">
-        <div class="form-group">
+        <div class="mb-3">
           <label for="token">Token :</label>
           <input id="token" v-model="token" class="form-control" readonly required>
         </div>
-        <div class="form-group">
+        <div class="mb-3">
           <label for="email">Email :</label>
           <input id="token" v-model="email" class="form-control" readonly required>
         </div>
-        <div class="form-group">
+        <div class="mb-3">
           <label for="password">New password :</label>
           <input id="token" v-model="password" class="form-control" type="password" required>
         </div>
-        <div class="form-group">
+        <div class="mb-3">
           <label for="password_confirmation">Confirm password :</label>
           <input id="password_confirmation" v-model="password_confirmation" class="form-control" type="password" required>
         </div>
-        <div class="form-group">
+        <div>
           <button type="submit" class="btn btn-success">Update account password</button>
         </div>
       </form>

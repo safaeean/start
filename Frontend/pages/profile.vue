@@ -2,11 +2,11 @@
   <section id="services">
     <client-only>
       <div v-if="user" class="container">
-        <div class="form-group">
+        <div class="mb-3">
           <label for="name">Name :</label>
           <input id="name" v-model="user.name" type="text" class="form-control" required>
         </div>
-        <div class="form-group">
+        <div>
           <button type="submit" class="btn btn-success">Update Profile</button>
           <button class="btn btn-danger" type="button" @click="logout">Logout</button>
           <button v-if="!user.email_verified_at" class="btn btn-info" type="button" @click="sendEmailVerification">Send email verification</button>

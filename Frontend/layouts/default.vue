@@ -1,14 +1,8 @@
 <template>
-  <div>
-    <div>
-      <div>
-        <div class="main-container">
-          <header-component />
-          <Nuxt />
-          <footer-component />
-        </div>
-      </div>
-    </div>
+  <div class="main-container" :dir="$i18n.localeProperties.dir">
+    <header-component />
+    <Nuxt />
+    <footer-component />
   </div>
 </template>
 <script setup>

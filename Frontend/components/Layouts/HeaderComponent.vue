@@ -1,5 +1,6 @@
 <template>
-  <nav id="main-nav" class="navbar navbar-expand-lg navbar-default bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+  <nav id="main-nav" class="navbar navbar-expand-lg navbar-default bg-dark border-bottom border-bottom-dark"
+       data-bs-theme="dark">
     <div class="container">
       <button
         class="navbar-toggler"
@@ -10,50 +11,61 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon" />
+        <span class="navbar-toggler-icon"/>
       </button>
       <div id="navbarTogglerDemo01" class="collapse navbar-collapse">
-        <NuxtLink class="navbar-brand" to="/">
+        <NuxtLink class="navbar-brand" :to="localePath('/')">
           <img :src="config.logo || `~/assets/images/logo.png`" class="logo" alt="logo">
         </NuxtLink>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mb-2 mb-lg-0" :class="$i18n.localeProperties.dir === 'rtl' ? 'ms-auto' : 'me-auto'">
           <li class="nav-item">
-            <NuxtLink class="nav-link" to="/">
-              Home
+            <NuxtLink class="nav-link" :to="localePath('/')">
+              {{ $t("Home") }}
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link" to="/blog">
-              Blog
+            <NuxtLink class="nav-link" :to="localePath('/blog')">
+              {{ $t("Blog") }}
             </NuxtLink>
           </li>
           <client-only>
             <li v-if="!$auth.loggedIn" class="nav-item">
-              <NuxtLink class="nav-link" to="/auth/register">
-                Register
+              <NuxtLink class="nav-link" :to="localePath('/auth/register')">
+                {{ $t("Register") }}
               </NuxtLink>
             </li>
             <li v-if="!$auth.loggedIn" class="nav-item">
-              <NuxtLink class="nav-link" to="/auth/login">
-                Login
+              <NuxtLink class="nav-link" :to="localePath('/auth/login')">
+                {{ $t("Login") }}
               </NuxtLink>
             </li>
             <li v-if="$auth.loggedIn" class="nav-item">
-              <NuxtLink class="nav-link" to="/profile">
-                {{ $auth.$state.user.name }}
+              <NuxtLink class="nav-link" :to="localePath('/profile')">
+                {{ $t("Profile") }}
               </NuxtLink>
             </li>
             <li v-if="$auth.loggedIn && $auth.$state.user.is_admin" class="nav-item">
               <a class="nav-link" href="/admin/dashboard">
-                Admin Panel
+                {{ $t("Admin Panel") }}
               </a>
             </li>
           </client-only>
         </ul>
+        <li class="nav-item dropdown float-end">
+          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ $t("Switch Language") }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li v-for="locale in availableLocales"
+                :key="locale.code">
+              <nuxt-link :to="switchLocalePath(locale.code)" class="dropdown-item">{{ locale.name }}</nuxt-link>
+            </li>
+          </ul>
+        </li>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">
-            Search
+            {{ $t('search') }}
           </button>
         </form>
       </div>
@@ -62,7 +74,12 @@
 </template>
 <script>
 export default {
-  data () {
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
+  },
+  data() {
     return {
       user: this.$auth.user,
       config: {}

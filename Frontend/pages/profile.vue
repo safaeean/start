@@ -3,13 +3,13 @@
     <client-only>
       <div v-if="user" class="container">
         <div class="mb-3">
-          <label for="name">Name :</label>
+          <label for="name">{{ $t('Name') }} :</label>
           <input id="name" v-model="user.name" type="text" class="form-control" required>
         </div>
         <div>
-          <button type="submit" class="btn btn-success">Update Profile</button>
-          <button class="btn btn-danger" type="button" @click="logout">Logout</button>
-          <button v-if="!user.email_verified_at" class="btn btn-info" type="button" @click="sendEmailVerification">Send email verification</button>
+          <button type="submit" class="btn btn-success">{{ $t('Update Profile') }}</button>
+          <button class="btn btn-danger" type="button" @click="logout">{{ $t('Logout') }}</button>
+          <button v-if="!user.email_verified_at" class="btn btn-info" type="button" @click="sendEmailVerification">{{ $t('Send email verification') }}</button>
         </div>
       </div>
     </client-only>
@@ -50,7 +50,7 @@ export default {
   },
   head () {
     return {
-      title: this.config.name + ' | Profile'
+      title: this.config.name + ' | ' + this.$t('Profile')
     }
   }
 }

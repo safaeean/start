@@ -6,5 +6,16 @@ export default {
   Profile: 'پروفایل',
   Login: 'ورود',
   'Admin Panel': 'پنل مدیریت',
-  'Switch Language': 'تغییر زبان'
+  'Switch Language': 'تغییر زبان',
+  Name: 'نام',
+  Email: 'ایمیل',
+  Password: 'رمز',
+  'Confirm password': 'تایید رمز',
+  'Reset password': 'تغییر رمز',
+  'Update account password' : 'تغییر رمز اکانت',
+  'Send me reset password instructions' : 'مراحل تغییر رمز عبور را برایم ارسال کن',
+  'I forgot my password' : 'رمزم را فراموش کرده ام',
+  'Update Profile' : 'بروزرسانی پروفایل',
+  Logout : 'خروج',
+  'Send email verification' : 'ارسال تاییدیه ایمیل'
 }

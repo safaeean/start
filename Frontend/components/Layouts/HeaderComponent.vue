@@ -63,7 +63,7 @@
           </ul>
         </li>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" :placeholder="$t('search')" :aria-label="$t('search')">
           <button class="btn btn-outline-success" type="submit">
             {{ $t('search') }}
           </button>

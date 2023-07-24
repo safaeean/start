@@ -3,19 +3,19 @@
     <div class="container">
       <form @submit.prevent="register" class="form-horizontal">
         <div class="mb-3">
-          <label for="name">Name :</label>
+          <label for="name">{{ $t('Name')}} :</label>
           <input type="text" class="form-control" id="name" v-model="name" required>
         </div>
         <div class="mb-3">
-          <label for="email">Email :</label>
+          <label for="email">{{ $t('Email')}} :</label>
           <input type="email" class="form-control" id="email" v-model="email" required>
         </div>
         <div class="mb-3">
-          <label for="password">Password :</label>
+          <label for="password">{{ $t('Password')}} :</label>
           <input type="password" class="form-control" id="password" v-model="password" required>
         </div>
         <div class="mb-3">
-          <label for="password_confirmation">Confirm password :</label>
+          <label for="password_confirmation">{{ $t('Confirm password')}} :</label>
           <input type="password"
                  class="form-control"
                  id="password_confirmation"
@@ -23,7 +23,7 @@
                  required>
         </div>
         <div>
-          <button type="submit" class="btn btn-success">Register</button>
+          <button type="submit" class="btn btn-success">{{ $t('Register')}}</button>
         </div>
       </form>
     </div>
@@ -97,7 +97,7 @@ export default {
   },
   head () {
     return {
-      title: this.config.name + ' | Register'
+      title: this.config.name + ' | ' + this.$t('Register')
     }
   }
 }

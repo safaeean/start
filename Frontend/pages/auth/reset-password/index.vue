@@ -3,11 +3,11 @@
     <div class="container">
       <form @submit.prevent="reset" class="form-horizontal">
         <div class="mb-3">
-          <label for="email">Email :</label>
+          <label for="email">{{ $t('Email') }} :</label>
           <input type="email" class="form-control" id="email" v-model="email" required>
         </div>
         <div>
-          <button type="submit" class="btn btn-success">Send me reset password instructions</button>
+          <button type="submit" class="btn btn-success">{{ $t('Send me reset password instructions') }}</button>
         </div>
       </form>
     </div>
@@ -63,7 +63,7 @@ export default {
   },
   head () {
     return {
-      title: this.config.name + ' | Reset password'
+      title: this.config.name + ' | ' + this.$t('Reset password')
     }
   }
 }

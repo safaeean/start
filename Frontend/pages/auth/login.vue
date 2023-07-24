@@ -3,19 +3,19 @@
     <div class="container">
       <form class="form-horizontal" @submit.prevent="login">
         <div class="mb-3">
-          <label class="form-label" for="email">Email :</label>
+          <label class="form-label" for="email">{{ $t('Email') }} :</label>
           <input id="email" v-model="email" type="email" class="form-control" required>
         </div>
         <div class="mb-3">
-          <label class="form-label" for="password">Password :</label>
+          <label class="form-label" for="password">{{ $t('Password') }} :</label>
           <input id="password" v-model="password" type="password" class="form-control" required>
         </div>
         <div class="mb-3">
           <button type="submit" class="btn btn-success">
-            Login
+            {{ $t('Login') }}
           </button>
-          <nuxt-link to="/auth/reset-password">
-            I forgot my password
+          <nuxt-link :to="localePath('/auth/reset-password')">
+            {{ $t('I forgot my password') }}
           </nuxt-link>
         </div>
       </form>
@@ -39,7 +39,7 @@ export default {
   },
   head() {
     return {
-      title: this.config.name + ' | Login'
+      title: this.config.name + ' | ' + this.$t('Login')
     }
   },
   methods: {

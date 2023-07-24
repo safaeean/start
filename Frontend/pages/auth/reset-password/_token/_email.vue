@@ -3,23 +3,23 @@
     <div class="container">
       <form @submit.prevent="reset" class="form-horizontal">
         <div class="mb-3">
-          <label for="token">Token :</label>
+          <label for="token">{{ $t('Token') }} :</label>
           <input id="token" v-model="token" class="form-control" readonly required>
         </div>
         <div class="mb-3">
-          <label for="email">Email :</label>
+          <label for="email">{{ $t('Email') }} :</label>
           <input id="token" v-model="email" class="form-control" readonly required>
         </div>
         <div class="mb-3">
-          <label for="password">New password :</label>
+          <label for="password">{{ $t('New password') }} :</label>
           <input id="token" v-model="password" class="form-control" type="password" required>
         </div>
         <div class="mb-3">
-          <label for="password_confirmation">Confirm password :</label>
+          <label for="password_confirmation">{{ $t('Confirm password') }} :</label>
           <input id="password_confirmation" v-model="password_confirmation" class="form-control" type="password" required>
         </div>
         <div>
-          <button type="submit" class="btn btn-success">Update account password</button>
+          <button type="submit" class="btn btn-success">{{ $t('Update account password') }}</button>
         </div>
       </form>
     </div>
@@ -90,7 +90,7 @@ export default {
   },
   head () {
     return {
-      title: this.config.name + ' | Reset password'
+      title: this.config.name + ' | ' + this.$t('Reset password')
     }
   }
 

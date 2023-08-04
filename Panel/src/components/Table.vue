@@ -267,7 +267,7 @@
   }
 
   .paginate-buttons:hover {
-    background-color: #d8d8d8;der
+    background-color: #d8d8d8;
   }
 
   .active-page {

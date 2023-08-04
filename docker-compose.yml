@@ -66,7 +66,7 @@ services:
       MYSQL_USER: '${DB_USERNAME}'
       MYSQL_PASSWORD: '${DB_PASSWORD}'
     volumes:
-      - 'mysql_volume:/var/lib/mysql'
+      - '/var/lib/mysql_volume:/var/lib/mysql'
     networks:
       - proxy
     cap_add:
@@ -82,8 +82,6 @@ services:
       - db
     networks:
       - proxy
-volumes:
-  mysql_volume:
 networks:
   proxy:
     driver: bridge

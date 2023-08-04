@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - './Backend/:/var/www/app'
-      - './default.conf:/etc/nginx/conf.d/default.conf'
+      - './nginx.conf:/etc/nginx/conf.d/default.conf'
     command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
     links:
       - php

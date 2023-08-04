@@ -267,7 +267,7 @@
   }
 
   .paginate-buttons:hover {
-    background-color: #d8d8d8;
+    background-color: #d8d8d8;der
   }
 
   .active-page {
@@ -278,8 +278,5 @@
 
   .active-page:hover {
     background-color: #2988c8;
-  }
-  .flex{
-    display: flex;
   }
 </style>

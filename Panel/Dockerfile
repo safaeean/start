@@ -1,13 +1,9 @@
-FROM node:14
+# Builder image
+FROM node:16-alpine
 
-WORKDIR /app
+# Set up the working directory
+WORKDIR /var/www/app
 
-COPY . /app
+RUN chown -R 1000:1000 "/root/"
 
-EXPOSE 8080
-
-RUN npm install http-server -g
-
-RUN npm install --no-optional && npm run build
-
-CMD http-server ./dist
+EXPOSE 3000

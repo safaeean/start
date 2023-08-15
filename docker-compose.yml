@@ -44,9 +44,10 @@ services:
     command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; npm install http-server -g && npm install --no-optional && npm run build &&  http-server ./dist;  done & npm install ; npm run build ;npm run preview'''
   php:
     container_name: '${APP_NAME}_php'
-    build:
-      context: ./Backend
-      dockerfile: Dockerfile
+    image: mndco/sample-php:1
+#    build:
+#      context: ./Backend
+#      dockerfile: Dockerfile
     links:
       - db
     depends_on:

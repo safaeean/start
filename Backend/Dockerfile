@@ -50,7 +50,16 @@ RUN sed -i 's/SECLEVEL=2/SECLEVEL=1/g' /etc/ssl/openssl.cnf
 ENV TZ=Asia/Tehran
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+COPY . /var/www/app
 
 WORKDIR /var/www/app
+RUN composer install
+
+RUN php artisan config:cache && \
+    php artisan route:cache && \
+    chmod 777 -R /var/www/app/storage/ && \
+    chown -R www-data:www-data /var/www
+
+
 RUN chown -R www-data:www-data /var/www
 EXPOSE 9000
